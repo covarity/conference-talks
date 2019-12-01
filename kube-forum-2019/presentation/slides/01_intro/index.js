@@ -129,26 +129,6 @@ export default [
           `} />
     </Fill>
     </Layout>
-  {/* <List>
-    <Appear fid="1">
-      <ListItem textColor={COLOR_PALLETE.textPrimary}>
-        Controlling `Service` resource type within environment
-      </ListItem>
-    </Appear>
-    <Appear fid="2">
-      <ListItem textColor={COLOR_PALLETE.textPrimary}>
-        Mutating deployments onto specific worker pools based of namespace etc
-      </ListItem>
-    </Appear>
-    <Appear fid="3">
-      <ListItem textColor={COLOR_PALLETE.textPrimary}>
-        Controller which resources can be deployed into which namespaced based on team and/or cluster
-      </ListItem>
-    </Appear>
-  </List>
-  <Text italic={true} textColor={COLOR_PALLETE.textPrimary}>walkthrough use-cases which are hard to scale easily across a wide number of users</Text>
-  <Text italic={true} textColor={COLOR_PALLETE.textPrimary}>specifically demonstrating doing best-practice enforcement</Text>
-  <Text italic={true} textColor={COLOR_PALLETE.textPrimary}>abstracting platforms concerns from developers</Text> */}
   <Notes>For a quick preface - in adopting OPA within the origanisation, these are some of the scenarios we had to overcome
   </Notes>
 </Slide>,
@@ -161,7 +141,7 @@ export default [
     caps
     lineHeight={1}
   >
-  Adoption Journey - Use Cases
+  Use Cases
   </Heading>
   <Layout>
     <Fill>
@@ -218,7 +198,7 @@ export default [
     caps
     lineHeight={1}
   >
-  Adoption Journey - Use Cases
+  Use Cases
   </Heading>
   <Layout>
     <Fill align='center'>
@@ -272,13 +252,13 @@ export default [
 <Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
  <Heading
     margin='100px 0 100px 0'
-    size={1}
+    size={3}
     textColor={COLOR_PALLETE.textPrimary}
     fit
     caps
     lineHeight={1}
   >
-  Scaling - Challenges
+  Productionising Challenges
   </Heading>
   <Text italic={true} textColor={COLOR_PALLETE.textPrimary}>walkthrough use-cases which are hard to scale easily across a wide number of users</Text> 
 </Slide>,
