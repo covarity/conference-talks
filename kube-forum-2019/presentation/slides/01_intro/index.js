@@ -16,6 +16,7 @@ import {
 } from 'spectacle'
 
 import IntroBackground from  './../../../assets/intro-background.png'
+import WorkflowPR from  './../../../assets/workflow-pr.png'
 
 
 const COLOR_PALLETE = {
@@ -356,6 +357,18 @@ export default [
   Anchor - How
   </Heading>
   <Text italic={true} textColor={COLOR_PALLETE.textPrimary}></Text> 
+</Slide>,
+<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+  <Heading
+     
+     size={5}
+     textColor={COLOR_PALLETE.textPrimary}
+     caps
+     lineHeight={1}
+   >
+   Workflow
+   </Heading>
+   <Image height={600} margin={"100px auto"} src={WorkflowPR} />
 </Slide>,
 <Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
   <Heading
