@@ -13,6 +13,7 @@ import {
 } from 'spectacle'
 
 import IntroBackground from  './../../../assets/intro-background.png'
+import WorkflowPR from  './../../../assets/workflow-pr.png'
 
 
 const COLOR_PALLETE = {
