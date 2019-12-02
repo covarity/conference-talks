@@ -8,6 +8,7 @@ import {
   Fill,
 } from 'spectacle'
 
+import WorkflowPR from  './../../../assets/workflow-pr.png'
 
 const COLOR_PALLETE = {
   background: '#020003',
@@ -17,6 +18,18 @@ const COLOR_PALLETE = {
 }
 
 export default [
+<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+  <Heading
+
+     size={5}
+     textColor={COLOR_PALLETE.textPrimary}
+     caps
+     lineHeight={1}
+   >
+   Workflow
+   </Heading>
+   <Image height={600} margin={"100px auto"} src={WorkflowPR} />
+</Slide>,
 <Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
   <Heading
      margin='100px 0 100px 0'
