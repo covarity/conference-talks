@@ -5,9 +5,11 @@ import {
 import createTheme from "spectacle/lib/themes/default";
 import { cloneElement } from 'react';
 import Intro from './slides/01_intro';
+import Workflow from './slides/02_workflow';
 import 'prismjs/components/prism-yaml';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-vim';
+import 'prismjs/components/prism-python';
 import './prism-tomorrow-night.css';
 
 require("normalize.css");
@@ -19,6 +21,7 @@ const TYPES = {
 
 const introduction_deck = [].concat(
   Intro,
+  Workflow,
 ).map((slide, i) => cloneElement(slide, { key: i }));
 
 const theme = createTheme({
