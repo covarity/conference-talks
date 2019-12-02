@@ -6,6 +6,7 @@ import {
   Text,
   Layout,
   Fill,
+  Image
 } from 'spectacle'
 
 import WorkflowPR from  './../../../assets/workflow-pr.png'
