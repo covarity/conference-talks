@@ -237,22 +237,48 @@ export default [
   <Notes>For a quick preface - in adopting OPA within the origanisation, these are some of the scenarios we had to overcome
   </Notes>
 </Slide>,
-<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
- <Heading
+<Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+<Heading
     margin='100px 0 100px 0'
     size={3}
     textColor={COLOR_PALLETE.textPrimary}
     caps
     lineHeight={1}
   >
-  Problems
+  Production Outcomes
+  </Heading> 
+</Slide>,
+<Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+ <Heading
+    margin='100px 0 100px 0'
+    size={3}
+    textColor={COLOR_PALLETE.textPrimary}
+    caps
+    italic
+    lineHeight={1}
+  >
+  Simplify the maintenance and extension of policies
   </Heading>
-  <List textColor={COLOR_PALLETE.textPrimary}>
-    <ListItem>Simplify the maintenance and extension of policies</ListItem>
-    <ListItem>Decoupling the underlying admission control solution (ie OPA)</ListItem>
-    <ListItem>Provide an abstraction with a consistent workflow</ListItem>
-  </List>
-  <Notes>
+  <Layout>
+  <Fill height={500} align="center center">
+    <List textColor={COLOR_PALLETE.textPrimary}>
+      <ListItem>common library of helper functions</ListItem>
+    </List>
+  </Fill>
+  <Appear order={1}>
+    <Fill>
+      <CodePane textSize={16} lang="bash" source={`
+  kube
+  ├── common
+      ...
+  ├── deny-resource
+  ├── lb-services
+          `} />
+
+      </Fill>
+    </Appear> 
+    </Layout>
+    <Notes>
     Reduce Cognitive Load
     Admission Controller agnostic interface
         - With the introduction of Gatekeeper, we wanted to provide a mechanism to support
@@ -261,43 +287,28 @@ export default [
         - Developer are used to dealing with helm charts, potentially surfacing the policies in a
           similar manner
   </Notes>
-</Slide>,
-<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
-      <Text caps textColor={COLOR_PALLETE.textPrimary} textSize={24}>Common library</Text>
-      <CodePane textSize={16} lang="bash" source={`
-  kube
-  ├── common
-  ├── deny-resource
-  ├── lb-services
-  ├── mutate-affinity
-  ├── mutate-label
-  ├── restrict-resource-namespaces
-  └── whitelist-namespaces
-          `} />
-          </Slide>,
-          <Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
-          <Heading
-             margin='100px 0 100px 0'
-             size={3}
-             textColor={COLOR_PALLETE.textPrimary}
-             fit
-             caps
-             lineHeight={1}
-           >
-           A Potential Solution
-           </Heading>
-               <Text
-                 caps
-                 textAlign={
-                   "centre"
-                   }
-                   textSize={24}
-                 textColor={COLOR_PALLETE.textPrimary}
-                 margin={10}
-                 >
-                 Templated Policies
-               </Text>
-               <CodePane textSize={16} lang="python" source={`
+  </Slide>,
+  <Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+  <Heading
+     margin='100px 0 100px 0'
+     size={3}
+     textColor={COLOR_PALLETE.textPrimary}
+     caps
+     italic
+     lineHeight={1}
+   >
+   Decoupling the underlying admission control solution (ie OPA)
+   </Heading>
+   <Layout>
+   <Fill height={500} align="center center">
+     <List textColor={COLOR_PALLETE.textPrimary}>
+       <ListItem>templating rego based policies</ListItem>
+       <ListItem>templating unit-tests for corresponding policies</ListItem>
+     </List>
+   </Fill>
+   <Appear order={1}>
+     <Fill>
+     <CodePane textSize={16} lang="python" source={`
          {% for resource in deny_resource -%}
 
          deny[msg] {
@@ -308,40 +319,93 @@ export default [
 
          {% endfor -%}
                    `} />
-         </Slide>,
-<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
-        <Text
-        caps
-        textAlign={
-          "centre"
-          }
-          textSize={24}
-        textColor={COLOR_PALLETE.textPrimary}
-        margin={10}
-        >
-        Exposed through common interface
-      </Text>
+ 
+       </Fill>
+     </Appear> 
+     </Layout>
+   </Slide>,
+   <Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+   <Heading
+      margin='100px 0 100px 0'
+      size={3}
+      textColor={COLOR_PALLETE.textPrimary}
+      caps
+      italic
+      lineHeight={1}
+    >
+    Provide an abstraction consistent with existing ecosystem (YAML) 
+    </Heading>
+    <Layout>
+    <Fill height={500} align="center center">
+      <List textColor={COLOR_PALLETE.textPrimary}>
+        <ListItem>top level values.yaml which generates policy</ListItem>
+      </List>
+    </Fill>
+    <Appear order={1}>
+      <Fill>
       <CodePane textSize={16} lang="yaml" source={`
 deny_resource:
 - ingresses
           `} />
-    <Notes>
-    - Common library of policies to get up and running which reduces the cognitive workload
-    - Templated policies which can be used to template rego now, and CRDs later when Gatekeeper is introducted for a graceful migration
-    - YAML values file, similar to the helm workflow that the developers are already familiar with
-  </Notes>
-</Slide>,
+        </Fill>
+      </Appear> 
+      </Layout>
+    </Slide>,
+    <Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+    <Heading
+       margin='100px 0 100px 0'
+       size={3}
+       textColor={COLOR_PALLETE.textPrimary}
+       caps
+       italic
+       lineHeight={1}
+     >
+     Unit testing policy with 100% coverage
+     </Heading>
+     <Layout>
+     <Fill height={500} align="center center">
+       <List textColor={COLOR_PALLETE.textPrimary}>
+         <ListItem>top level values.yaml which generates policy</ListItem>
+       </List>
+     </Fill>
+     <Appear order={1}>
+       <Fill>
+       <CodePane textSize={16} lang="yaml" source={`
+ deny_resource:
+ - ingresses
+           `} />
+         </Fill>
+       </Appear> 
+       </Layout>
+     </Slide>,
+     <Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+     <Heading
+        margin='100px 0 100px 0'
+        size={3}
+        textColor={COLOR_PALLETE.textPrimary}
+        caps
+        italic
+        lineHeight={1}
+      >
+      Integration testing validation and mutation policies
+      </Heading>
+      <Layout>
+      <Fill height={500} align="center center">
+        <List textColor={COLOR_PALLETE.textPrimary}>
+          <ListItem>top level values.yaml which generates policy</ListItem>
+        </List>
+      </Fill>
+      <Appear order={1}>
+        <Fill>
+        <CodePane textSize={16} lang="yaml" source={`
+  deny_resource:
+  - ingresses
+            `} />
+          </Fill>
+        </Appear> 
+        </Layout>
+      </Slide>,
 <Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
-<Heading
-    margin='100px 0 100px 0'
-    size={3}
-    textColor={COLOR_PALLETE.textPrimary}
-    fit
-    caps
-    lineHeight={1}
-  >
-  More Challenges
-  </Heading>
   <Layout>
     <Fill>
     <Appear order={1}>
