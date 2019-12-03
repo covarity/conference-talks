@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Heading,
   Slide,
@@ -9,85 +9,114 @@ import {
   Notes,
   List,
   ListItem,
-  Appear
-} from 'spectacle'
+  Image,
+  Appear,
+} from "spectacle";
 
-import IntroBackground from  './../../../assets/intro-background.png'
-import WorkflowPR from  './../../../assets/workflow-pr.png'
-
+import IntroBackground from "./../../../assets/intro-background.png";
+import WorkflowPR from "./../../../assets/workflow-pr.png";
+import AnchorCTL from  './../../../assets/anchorctl.png'
 
 const COLOR_PALLETE = {
-  background: '#020003',
-  textPrimary: '#ffffff',
-  textSecondary: '#64c27c',
-
-}
+  background: "#020003",
+  textPrimary: "#ffffff",
+  textSecondary: "#64c27c",
+};
 
 export default [
-  <Slide align='center center-top' transition={['zoom']} bgImage={IntroBackground}>
+  <Slide
+    align="center center-top"
+    transition={["zoom"]}
+    bgImage={IntroBackground}
+  >
     <Heading
-      margin='100px 0 400px 0'
+      margin="100px 0 400px 0"
       size={1}
       textColor={COLOR_PALLETE.textPrimary}
-      align='center center-top'
+      align="center center-top"
       fit
       caps
       textColor="black"
       lineHeight={1}
     >
-    OPA Policy Templating and Testing
+      OPA Policy Templating and Testing
     </Heading>
-    <Text textAlign='right' margin='0 20px' italic={true} textColor={COLOR_PALLETE.textPrimary}>Tejas Cherukara</Text>
-    <Text textAlign='right' margin='0 20px' italic={true} textColor={COLOR_PALLETE.textPrimary}>Ben Ebsworth</Text>
+    <Text
+      textAlign="right"
+      margin="0 20px"
+      italic={true}
+      textColor={COLOR_PALLETE.textPrimary}
+    >
+      Tejas Cherukara
+    </Text>
+    <Text
+      textAlign="right"
+      margin="0 20px"
+      italic={true}
+      textColor={COLOR_PALLETE.textPrimary}
+    >
+      Ben Ebsworth
+    </Text>
   </Slide>,
-  <Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
-   <Heading
-      margin='100px 0 100px 0'
+  <Slide
+    align="center center"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
+  >
+    <Heading
+      margin="100px 0 100px 0"
       size={1}
       textColor={COLOR_PALLETE.textPrimary}
       fit
       caps
       lineHeight={1}
     >
-    What is OPA?
+      What is OPA?
     </Heading>
   </Slide>,
- <Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
- <Heading
-    margin='100px 0 100px 0'
-    size={4}
-    textColor={COLOR_PALLETE.textPrimary}
-    fit
-    caps
-    lineHeight={1}
+  <Slide
+    align="center flex-start"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
   >
-  Adoption Journey - Use Cases
-  </Heading>
-  <Layout>
-    <Fill>
-      <Heading
-        size={6}
-        caps
-        textColor="secondary"
-        bgColor="white"
-        margin={10}
-      >
-      </Heading>
-      <Text textColor={COLOR_PALLETE.textPrimary}>Controlling `Service` resource type within environment. Preventing services being exposed unintentionally</Text>
-    </Fill>
-    <Fill>
-      <Text
-        caps
-        textAlign={
-          "left"
-          }
+    <Heading
+      margin="100px 0 100px 0"
+      size={4}
+      textColor={COLOR_PALLETE.textPrimary}
+      fit
+      caps
+      lineHeight={1}
+    >
+      Adoption Journey - Use Cases
+    </Heading>
+    <Layout>
+      <Fill>
+        <Heading
+          size={6}
+          caps
+          textColor="secondary"
+          bgColor="white"
+          margin={10}
+        ></Heading>
+        <Text textColor={COLOR_PALLETE.textPrimary}>
+          Controlling `Service` resource type within environment. Preventing
+          services being exposed unintentionally
+        </Text>
+      </Fill>
+      <Fill>
+        <Text
+          caps
+          textAlign={"left"}
           textSize={24}
-        textColor={COLOR_PALLETE.textPrimary}
-        margin={10}
+          textColor={COLOR_PALLETE.textPrimary}
+          margin={10}
         >
-        ✅  allow internal service
-      </Text>
-      <CodePane textSize={16} lang="yaml" source={`
+          ✅ allow internal service
+        </Text>
+        <CodePane
+          textSize={16}
+          lang="yaml"
+          source={`
         apiVersion: v1
         kind: Service
         metadata:
@@ -95,18 +124,21 @@ export default [
         spec:
           ...
           type: ClusterIP
-          `} />
-      <Text
-        caps
-        textSize={25}
-        textAlign={
-        "left"
-        }
-        textColor={COLOR_PALLETE.textPrimary}
-        margin={10}
-      >❌  deny external service
-      </Text>
-      <CodePane textSize={16} lang="yaml" source={`
+          `}
+        />
+        <Text
+          caps
+          textSize={25}
+          textAlign={"left"}
+          textColor={COLOR_PALLETE.textPrimary}
+          margin={10}
+        >
+          ❌ deny external service
+        </Text>
+        <CodePane
+          textSize={16}
+          lang="yaml"
+          source={`
         apiVersion: v1
         kind: Service
         metadata:
@@ -114,48 +146,57 @@ export default [
         spec:
           ...
           type: LoadBalancer
-          `} />
-    </Fill>
+          `}
+        />
+      </Fill>
     </Layout>
-  <Notes>For a quick preface - in adopting OPA within the origanisation, these are some of the scenarios we had to overcome
-  </Notes>
-</Slide>,
-<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
- <Heading
-    margin='100px 0 100px 0'
-    size={4}
-    textColor={COLOR_PALLETE.textPrimary}
-    fit
-    caps
-    lineHeight={1}
+    <Notes>
+      For a quick preface - in adopting OPA within the origanisation, these are
+      some of the scenarios we had to overcome
+    </Notes>
+  </Slide>,
+  <Slide
+    align="center flex-start"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
   >
-  Use Cases
-  </Heading>
-  <Layout>
-    <Fill>
-      <Heading
-        size={6}
-        caps
-        textColor="secondary"
-        bgColor="white"
-        margin={10}
-      >
-      </Heading>
-      <Text textColor={COLOR_PALLETE.textPrimary}>Mutating deployments onto specific worker pools based of namespace etc</Text>
-    </Fill>
-    <Fill>
-      <Text
-        caps
-        textAlign={
-          "left"
-          }
+    <Heading
+      margin="100px 0 100px 0"
+      size={4}
+      textColor={COLOR_PALLETE.textPrimary}
+      fit
+      caps
+      lineHeight={1}
+    >
+      Use Cases
+    </Heading>
+    <Layout>
+      <Fill>
+        <Heading
+          size={6}
+          caps
+          textColor="secondary"
+          bgColor="white"
+          margin={10}
+        ></Heading>
+        <Text textColor={COLOR_PALLETE.textPrimary}>
+          Mutating deployments onto specific worker pools based of namespace etc
+        </Text>
+      </Fill>
+      <Fill>
+        <Text
+          caps
+          textAlign={"left"}
           textSize={24}
-        textColor={COLOR_PALLETE.textPrimary}
-        margin={10}
+          textColor={COLOR_PALLETE.textPrimary}
+          margin={10}
         >
-        namespace-functionA → node-pool-A
-      </Text>
-      <CodePane textSize={16} lang="yaml" source={`
+          namespace-functionA → node-pool-A
+        </Text>
+        <CodePane
+          textSize={16}
+          lang="yaml"
+          source={`
         apiVersion: v1
         kind: Pod
         metadata:
@@ -171,40 +212,51 @@ export default [
                   operator: In
                   values: functionA
                   -
-          `} />
-    </Fill>
+          `}
+        />
+      </Fill>
     </Layout>
-  <Notes>For a quick preface - in adopting OPA within the origanisation, these are some of the scenarios we had to overcome
-  </Notes>
-</Slide>,
-<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
- <Heading
-    margin='100px 0 100px 0'
-    size={4}
-    textColor={COLOR_PALLETE.textPrimary}
-    fit
-    caps
-    lineHeight={1}
+    <Notes>
+      For a quick preface - in adopting OPA within the origanisation, these are
+      some of the scenarios we had to overcome
+    </Notes>
+  </Slide>,
+  <Slide
+    align="center flex-start"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
   >
-  Use Cases
-  </Heading>
-  <Layout>
-    <Fill align='center'>
-      <Text textColor={COLOR_PALLETE.textPrimary}>Control which resources can be deployed into which namespace based on team and/or cluster</Text>
-    </Fill>
-    <Fill >
-      <Text
-        caps
-        textAlign={
-          "left"
-          }
+    <Heading
+      margin="100px 0 100px 0"
+      size={4}
+      textColor={COLOR_PALLETE.textPrimary}
+      fit
+      caps
+      lineHeight={1}
+    >
+      Use Cases
+    </Heading>
+    <Layout>
+      <Fill align="center">
+        <Text textColor={COLOR_PALLETE.textPrimary}>
+          Control which resources can be deployed into which namespace based on
+          team and/or cluster
+        </Text>
+      </Fill>
+      <Fill>
+        <Text
+          caps
+          textAlign={"left"}
           textSize={24}
-        textColor={COLOR_PALLETE.textPrimary}
-        margin={10}
+          textColor={COLOR_PALLETE.textPrimary}
+          margin={10}
         >
-        ✅ Allow Deployment resource
-      </Text>
-      <CodePane textSize={16} lang="yaml" source={`
+          ✅ Allow Deployment resource
+        </Text>
+        <CodePane
+          textSize={16}
+          lang="yaml"
+          source={`
         apiVersion: v1
         kind: Deployment
         metadata:
@@ -212,18 +264,21 @@ export default [
           namespace: teamA
         spec:
           ...
-          `} />
-      <Text
-        caps
-        textSize={24}
-        textAlign={
-        "left"
-        }
-        textColor={COLOR_PALLETE.textPrimary}
-        margin={10}
-      >❌  deny DaemonSet resource
-      </Text>
-      <CodePane textSize={16} lang="yaml" source={`
+          `}
+        />
+        <Text
+          caps
+          textSize={24}
+          textAlign={"left"}
+          textColor={COLOR_PALLETE.textPrimary}
+          margin={10}
+        >
+          ❌ deny DaemonSet resource
+        </Text>
+        <CodePane
+          textSize={16}
+          lang="yaml"
+          source={`
         apiVersion: v1
         kind: DaemonSet
         metadata:
@@ -231,84 +286,104 @@ export default [
           namespace: teamA
         spec:
           ...
-          `} />
-    </Fill>
+          `}
+        />
+      </Fill>
     </Layout>
-  <Notes>For a quick preface - in adopting OPA within the origanisation, these are some of the scenarios we had to overcome
-  </Notes>
-</Slide>,
-<Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
-<Heading
-    margin='100px 0 100px 0'
-    size={3}
-    textColor={COLOR_PALLETE.textPrimary}
-    caps
-    lineHeight={1}
+    <Notes>
+      For a quick preface - in adopting OPA within the origanisation, these are
+      some of the scenarios we had to overcome
+    </Notes>
+  </Slide>,
+  <Slide
+    align="center flex-start"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
   >
-  Production Outcomes
-  </Heading> 
-</Slide>,
-<Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
- <Heading
-    margin='100px 0 100px 0'
-    size={3}
-    textColor={COLOR_PALLETE.textPrimary}
-    caps
-    italic
-    lineHeight={1}
+    <Heading
+      margin="100px 0 100px 0"
+      size={3}
+      textColor={COLOR_PALLETE.textPrimary}
+      caps
+      lineHeight={1}
+    >
+      Production Outcomes
+    </Heading>
+  </Slide>,
+  <Slide
+    align="center center"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
   >
-  Simplify the maintenance and extension of policies
-  </Heading>
-  <Layout>
-  <Fill height={500} align="center center">
-    <List textColor={COLOR_PALLETE.textPrimary}>
-      <ListItem>common library of helper functions</ListItem>
-    </List>
-  </Fill>
-  <Appear order={1}>
-    <Fill>
-      <CodePane textSize={16} lang="bash" source={`
+    <Heading
+      margin="100px 0 100px 0"
+      size={3}
+      textColor={COLOR_PALLETE.textPrimary}
+      caps
+      italic
+      lineHeight={1}
+    >
+      Simplify the maintenance and extension of policies
+    </Heading>
+    <Layout>
+      <Fill height={500} align="center center">
+        <List textColor={COLOR_PALLETE.textPrimary}>
+          <ListItem>common library of helper functions</ListItem>
+        </List>
+      </Fill>
+      <Appear order={1}>
+        <Fill>
+          <CodePane
+            textSize={16}
+            lang="bash"
+            source={`
   kube
   ├── common
       ...
   ├── deny-resource
   ├── lb-services
-          `} />
-
-      </Fill>
-    </Appear> 
+          `}
+          />
+        </Fill>
+      </Appear>
     </Layout>
     <Notes>
-    Reduce Cognitive Load
-    Admission Controller agnostic interface
-        - With the introduction of Gatekeeper, we wanted to provide a mechanism to support
-          writing policies that could lead to a graceful migration from OPA + kube-mgmt to Gatekeeper
-    Abstraction with consistent workflow
-        - Developer are used to dealing with helm charts, potentially surfacing the policies in a
-          similar manner
-  </Notes>
+      Reduce Cognitive Load Admission Controller agnostic interface - With the
+      introduction of Gatekeeper, we wanted to provide a mechanism to support
+      writing policies that could lead to a graceful migration from OPA +
+      kube-mgmt to Gatekeeper Abstraction with consistent workflow - Developer
+      are used to dealing with helm charts, potentially surfacing the policies
+      in a similar manner
+    </Notes>
   </Slide>,
-  <Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
-  <Heading
-     margin='100px 0 100px 0'
-     size={3}
-     textColor={COLOR_PALLETE.textPrimary}
-     caps
-     italic
-     lineHeight={1}
-   >
-   Decoupling the underlying admission control solution (ie OPA)
-   </Heading>
-   <Layout>
-   <Fill height={500} align="center center">
-     <List textColor={COLOR_PALLETE.textPrimary}>
-       <ListItem>templating rego based policies</ListItem>
-       <ListItem>templating unit-tests for corresponding policies</ListItem>
-     </List>
-   </Fill>
-   <Appear order={1}>
-     <Fill>
-     <CodePane textSize={16} lang="python" source={`
+  <Slide
+    align="center flex-start"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
+  >
+    <Heading
+      margin="100px 0 100px 0"
+      size={3}
+      textColor={COLOR_PALLETE.textPrimary}
+      caps
+      italic
+      lineHeight={1}
+    >
+      Decoupling the underlying admission control solution (ie OPA)
+    </Heading>
+    <Layout>
+      <Fill height={500} align="center center">
+        <List textColor={COLOR_PALLETE.textPrimary}>
+          <ListItem>templating rego based policies</ListItem>
+          <ListItem>templating unit-tests for corresponding policies</ListItem>
+        </List>
+      </Fill>
+      <Appear order={1}>
+        <Fill>
+          <CodePane
+            textSize={16}
+            lang="python"
+            source={`
          {% for resource in deny_resource -%}
 
          deny[msg] {
@@ -318,78 +393,28 @@ export default [
          }
 
          {% endfor -%}
-                   `} />
- 
-       </Fill>
-     </Appear> 
-     </Layout>
-   </Slide>,
-   <Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
-   <Heading
-      margin='100px 0 100px 0'
+                   `}
+          />
+        </Fill>
+      </Appear>
+    </Layout>
+  </Slide>,
+  <Slide
+    align="center flex-start"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
+  >
+    <Heading
+      margin="100px 0 100px 0"
       size={3}
       textColor={COLOR_PALLETE.textPrimary}
       caps
       italic
       lineHeight={1}
     >
-    Provide an abstraction consistent with existing ecosystem (YAML) 
+      Provide an abstraction consistent with existing ecosystem (YAML)
     </Heading>
     <Layout>
-    <Fill height={500} align="center center">
-      <List textColor={COLOR_PALLETE.textPrimary}>
-        <ListItem>top level values.yaml which generates policy</ListItem>
-      </List>
-    </Fill>
-    <Appear order={1}>
-      <Fill>
-      <CodePane textSize={16} lang="yaml" source={`
-deny_resource:
-- ingresses
-          `} />
-        </Fill>
-      </Appear> 
-      </Layout>
-    </Slide>,
-    <Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
-    <Heading
-       margin='100px 0 100px 0'
-       size={3}
-       textColor={COLOR_PALLETE.textPrimary}
-       caps
-       italic
-       lineHeight={1}
-     >
-     Unit testing policy with 100% coverage
-     </Heading>
-     <Layout>
-     <Fill height={500} align="center center">
-       <List textColor={COLOR_PALLETE.textPrimary}>
-         <ListItem>top level values.yaml which generates policy</ListItem>
-       </List>
-     </Fill>
-     <Appear order={1}>
-       <Fill>
-       <CodePane textSize={16} lang="yaml" source={`
- deny_resource:
- - ingresses
-           `} />
-         </Fill>
-       </Appear> 
-       </Layout>
-     </Slide>,
-     <Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
-     <Heading
-        margin='100px 0 100px 0'
-        size={3}
-        textColor={COLOR_PALLETE.textPrimary}
-        caps
-        italic
-        lineHeight={1}
-      >
-      Integration testing validation and mutation policies
-      </Heading>
-      <Layout>
       <Fill height={500} align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>top level values.yaml which generates policy</ListItem>
@@ -397,36 +422,49 @@ deny_resource:
       </Fill>
       <Appear order={1}>
         <Fill>
-        <CodePane textSize={16} lang="yaml" source={`
-  deny_resource:
-  - ingresses
-            `} />
-          </Fill>
-        </Appear> 
-        </Layout>
-      </Slide>,
-<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
-  <Layout>
-    <Fill>
-    <Appear order={1}>
-      <div>
-        <List>
-          <ListItem>Unit testing policy with 100% coverage</ListItem>
-    <ListItem>Integration testing validation and mutation policies</ListItem>
+          <CodePane
+            textSize={16}
+            lang="yaml"
+            source={`
+deny_resource:
+- ingresses
+          `}
+          />
+        </Fill>
+      </Appear>
+    </Layout>
+  </Slide>,
+  <Slide
+    align="center flex-start"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
+  >
+    <Heading
+      margin="100px 0 100px 0"
+      size={3}
+      textColor={COLOR_PALLETE.textPrimary}
+      caps
+      italic
+      lineHeight={1}
+    >
+      Unit testing policy with 100% coverage
+    </Heading>
+    <Layout style={{ alignItems: "center" }}>
+      <Fill align="center center">
+        <List textColor={COLOR_PALLETE.textPrimary}>
+          <ListItem>unit testing policy using opa built-in capability</ListItem>
+          <ListItem>
+            auto-generating unit tests corresponding to generated policy
+          </ListItem>
         </List>
-
-      <Text
-        caps
-        textAlign={
-          "centre"
-          }
-          textSize={24}
-        textColor={COLOR_PALLETE.textPrimary}
-        margin={10}
-        >
-        What about unit tests?
-      </Text>
-      <CodePane textSize={16} lang="python" source={`
+      </Fill>
+      <Appear order={1}>
+        <Fill>
+          <CodePane
+            style={{ marginLeft: 50 }}
+            textSize={16}
+            lang="python"
+            source={`
 {% for resource in deny_resource -%}
 
 test_deny_denyResource_{{ resource }} {
@@ -441,62 +479,51 @@ test_deny_denyResource_{{ resource }} {
 
 {% endfor -%}
 
-          `} />
-      </div>
-    </Appear>
-    </Fill>
-  </Layout>
-  <Layout>
-    <Fill>
-    <Appear order={2}>
-      <div>
-      <Text
-        caps
-        textAlign={
-          "centre"
-          }
-          textSize={24}
-        textColor={COLOR_PALLETE.textPrimary}
-        margin={10}
-        >
-        What about integrations tests?
-      </Text>
+          `}
+          />
+        </Fill>
+      </Appear>
+    </Layout>
+  </Slide>,
+  <Slide
+    align="center flex-start"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
+  >
+    <Heading
+      margin="100px 0 100px 0"
+      size={3}
+      textColor={COLOR_PALLETE.textPrimary}
+      caps
+      italic
+      lineHeight={1}
+    >
+      Integration testing validation and mutation policies
+    </Heading>
+    <Layout>
+      <Fill height={500} align="center center">
+        <List textColor={COLOR_PALLETE.textPrimary}>
+          <ListItem>
+            Built opensource tool for defining integration tests as YAML
+          </ListItem>
+          <ListItem>
+            Carries out end-to-end tests of OPA policies in a running kubernetes
+            environment
+          </ListItem>
           <List textColor={COLOR_PALLETE.textPrimary}>
             <ListItem>Assert status of OPA deploy and configmaps</ListItem>
             <ListItem>Assert Validating Admission webhook works</ListItem>
             <ListItem>Assert Mutating Admission webhook works</ListItem>
           </List>
-      </div>
-    </Appear>
-    </Fill>
-  </Layout>
-</Slide>,
-<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
- <Heading
-    margin='100px 0 100px 0'
-    size={3}
-    textColor={COLOR_PALLETE.textPrimary}
-    fit
-    caps
-    lineHeight={1}
-  >
-  AnchorCTL
-  </Heading>
-  <Layout style={{padding:"20px"}}>
-  <Fill>
-    <Appear order={1}>
-      <List caps textAlign={"centre"} textSize={"24"} textColor={COLOR_PALLETE.textPrimary}>
-        <ListItem>Opensource CLI tool written in Golang</ListItem>
-        <ListItem>Collection of Kubernetes test helps</ListItem>
-        <ListItem>Tests defined through YAML interface</ListItem>
-      </List>
-    </Appear>
-    </Fill>
-    <Fill align='center' style={{padding:"10px"}}>
-      <Appear order={2}>
-        <div>
-        <Text caps textColor={COLOR_PALLETE.textPrimary} textSize={24}>Test File</Text>
-      <CodePane textSize={14} lang="yaml" source={`
+        </List>
+      </Fill>
+      <Appear order={1}>
+        <Fill>
+          <CodePane
+            style={{ marginLeft: 50 }}
+            textSize={14}
+            lang="yaml"
+            source={`
 kind: KubernetesTest
 api: anchor.io/alpha1v1
 metadata:
@@ -520,14 +547,46 @@ tests:
   filePath: "./samples/fixtures/deploy.yaml"
   jsonPath: ".metadata.labels.function"
   value: "workload"
-          `} />
-        </div>
+          `}
+          />
+        </Fill>
       </Appear>
-
-    </Fill>
     </Layout>
-</Slide>
-]
+  </Slide>,
+  <Slide
+    align="center flex-start"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
+  >
+    <Heading
+      margin="100px 0 100px 0"
+      size={3}
+      textColor={COLOR_PALLETE.textPrimary}
+      fit
+      caps
+      lineHeight={1}
+    >
+      AnchorCTL
+    </Heading>
+    <Layout style={{ alignItems: "center" }}>
+      <Fill>
+          <List
+            caps
+            textAlign={"centre"}
+            textSize={"24"}
+            textColor={COLOR_PALLETE.textPrimary}
+          >
+            <ListItem>Opensource CLI tool written in Golang</ListItem>
+            <ListItem>Collection of Kubernetes test helps</ListItem>
+            <ListItem>Tests defined through YAML interface</ListItem>
+          </List>
+      </Fill>
+      <Fill align="center" style={{ padding: "10px" }}>
+        <Image src={AnchorCTL} />
+      </Fill>
+    </Layout>
+  </Slide>,
+];
 // Consistent interface for developers to interact with: similar to helm charts
 // Reduces cognitive effort required to get up and running
 // Admission controller agnostic interface to building policy
