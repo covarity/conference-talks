@@ -6,10 +6,12 @@ import {
   Text,
   Layout,
   Fill,
-  Image
+  Image,
+  Code,
 } from 'spectacle'
 
 import WorkflowPR from  './../../../assets/workflow-pr.png'
+import Tekton from  './../../../assets/tekton.png'
 
 const COLOR_PALLETE = {
   background: '#020003',
@@ -41,7 +43,7 @@ export default [
    >
    Workflow
    </Heading>
-   <Layout>
+   <Layout style={{ alignItems: 'center' }}>
     <Fill>
       <Heading
         size={4}
@@ -51,7 +53,7 @@ export default [
         margin={10}
       >
       </Heading>
-      <Text textColor={COLOR_PALLETE.textPrimary}>A high level interface is provided to developer for manging policies within their environments</Text>
+      <Text textColor={COLOR_PALLETE.textPrimary}>A high level interface is provided to developer for managing policies within their environments</Text>
     </Fill>
     <Fill>
       <Heading
@@ -62,7 +64,7 @@ export default [
       >
         values.yaml
       </Heading>
-      <CodePane lang="yaml" source={`
+      <CodePane textSize={25} lang="yaml" source={`
         policies:
           resourcesAllowed:
             - name: dev-a
@@ -76,18 +78,140 @@ export default [
     </Fill>
     </Layout>
  </Slide>,
-<Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+ <Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
  <Heading
     margin='100px 0 100px 0'
-    size={1}
+    size={5}
     textColor={COLOR_PALLETE.textPrimary}
-    fit
     caps
     lineHeight={1}
   >
-  Demo - Workflow
+  Workflow
   </Heading>
-  <Text italic={true} textColor={COLOR_PALLETE.textPrimary}>Templating + unit tests + integration tests all running in Tekton Pipeline triggered via github PR</Text>
+  <Layout style={{ alignItems: 'center' }}>
+   <Fill>
+     <Heading
+       size={4}
+       caps
+       textColor="secondary"
+       bgColor="white"
+       margin={10}
+     >
+     </Heading>
+     <Text textColor={COLOR_PALLETE.textPrimary}>Tekton pipeline is triggered on PR to repository</Text>
+   </Fill>
+   <Fill>
+     <Image src={Tekton} />
+   </Fill>
+   </Layout>
+</Slide>,
+<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+ <Heading
+    margin='100px 0 100px 0'
+    size={5}
+    textColor={COLOR_PALLETE.textPrimary}
+    caps
+    lineHeight={1}
+  >
+  Workflow
+  </Heading>
+  <Layout style={{ alignItems: 'center' }}>
+   <Fill>
+     <Heading
+       size={4}
+       caps
+       textColor="secondary"
+       bgColor="white"
+       margin={10}
+     >
+     </Heading>
+     <Text textColor={COLOR_PALLETE.textPrimary}>Jinja2 templating engine generates OPA policy and corresponding unit tests</Text>
+   </Fill>
+   <Fill>
+     <Code bgColor={'#ffffff3d'} textColor={COLOR_PALLETE.textPrimary} >jinja2 ./templates/*</Code>
+   </Fill>
+   </Layout>
+</Slide>,
+<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+ <Heading
+    margin='100px 0 100px 0'
+    size={5}
+    textColor={COLOR_PALLETE.textPrimary}
+    caps
+    lineHeight={1}
+  >
+  Workflow
+  </Heading>
+  <Layout style={{ alignItems: 'center' }}>
+   <Fill>
+     <Heading
+       size={4}
+       caps
+       textColor="secondary"
+       bgColor="white"
+       margin={10}
+     >
+     </Heading>
+     <Text textColor={COLOR_PALLETE.textPrimary}>Run unit tests using built-in opa testing capability</Text>
+   </Fill>
+   <Fill>
+     <Code bgColor={'#ffffff3d'} textColor={COLOR_PALLETE.textPrimary} >opa test ../output/tests/*</Code>
+   </Fill>
+   </Layout>
+</Slide>,
+<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+ <Heading
+    margin='100px 0 100px 0'
+    size={5}
+    textColor={COLOR_PALLETE.textPrimary}
+    caps
+    lineHeight={1}
+  >
+  Workflow
+  </Heading>
+  <Layout style={{ alignItems: 'center' }}>
+   <Fill>
+     <Heading
+       size={4}
+       caps
+       textColor="secondary"
+       bgColor="white"
+       margin={10}
+     >
+     </Heading>
+     <Text textColor={COLOR_PALLETE.textPrimary}>Run integration tests using anchorctl to assert expected behavior within kubernetes</Text>
+   </Fill>
+   <Fill>
+     <Code bgColor={'#ffffff3d'} textColor={COLOR_PALLETE.textPrimary} >anchorctl run -f ./integration-tests/* </Code>
+   </Fill>
+   </Layout>
+</Slide>,
+<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+ <Heading
+    margin='100px 0 100px 0'
+    size={5}
+    textColor={COLOR_PALLETE.textPrimary}
+    caps
+    lineHeight={1}
+  >
+  Workflow
+  </Heading>
+  <Layout style={{ alignItems: 'center' }}>
+   <Fill>
+     <Heading
+       size={4}
+       caps
+       textColor="secondary"
+       bgColor="white"
+       margin={10}
+     >
+     </Heading>
+     <Text textColor={COLOR_PALLETE.textPrimary}>If all tests are successful then we commit back to the repository a versioned snapshot of the OPA policy output and apply the changes to the cluster</Text>
+   </Fill>
+   <Fill>
+     <Code bgColor={'#ffffff3d'} textColor={COLOR_PALLETE.textPrimary} >kubectl apply -f ./output/resources/*</Code>
+   </Fill>
+   </Layout>
 </Slide>,
 <Slide align='center center' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
  <Heading
