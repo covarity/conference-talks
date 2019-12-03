@@ -242,15 +242,14 @@ export default [
     margin='100px 0 100px 0'
     size={3}
     textColor={COLOR_PALLETE.textPrimary}
-    fit
     caps
     lineHeight={1}
   >
-  Productionising Challenges
+  Problems
   </Heading>
   <List textColor={COLOR_PALLETE.textPrimary}>
-    <ListItem>Reduce effort get up and running with OPA</ListItem>
-    <ListItem>Provide a admission controller agnostic interface</ListItem>
+    <ListItem>Simplify the maintenance and extension of policies</ListItem>
+    <ListItem>Decoupling the underlying admission control solution (ie OPA)</ListItem>
     <ListItem>Provide an abstraction with a consistent workflow</ListItem>
   </List>
   <Notes>
@@ -264,51 +263,7 @@ export default [
   </Notes>
 </Slide>,
 <Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
- <Heading
-    margin='100px 0 100px 0'
-    size={3}
-    textColor={COLOR_PALLETE.textPrimary}
-    fit
-    caps
-    lineHeight={1}
-  >
-  A Potential Solution
-  </Heading>
-  <Layout style={{padding:"20px"}}>
-  <Fill>
-    <Appear order={2}>
-      <div>
-      <Text
-        caps
-        textAlign={
-          "centre"
-          }
-          textSize={24}
-        textColor={COLOR_PALLETE.textPrimary}
-        margin={10}
-        >
-        Of templated policies
-      </Text>
-      <CodePane textSize={16} lang="python" source={`
-{% for resource in deny_resource -%}
-
-deny[msg] {
-    input.request.resource.resource = "{{resource}}"
-    isCreate
-    msg := "You can't create {{resource}} resource in this Cluster"
-}
-
-{% endfor -%}
-          `} />
-      </div>
-    </Appear>
-    </Fill>
-    </Layout>
-    <Layout>
-    <Fill align='center' style={{padding:"10px"}}>
-      <Appear order={1}>
-        <div>
-        <Text caps textColor={COLOR_PALLETE.textPrimary} textSize={24}>Common library</Text>
+      <Text caps textColor={COLOR_PALLETE.textPrimary} textSize={24}>Common library</Text>
       <CodePane textSize={16} lang="bash" source={`
   kube
   ├── common
@@ -319,13 +274,42 @@ deny[msg] {
   ├── restrict-resource-namespaces
   └── whitelist-namespaces
           `} />
-        </div>
-      </Appear>
+          </Slide>,
+          <Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
+          <Heading
+             margin='100px 0 100px 0'
+             size={3}
+             textColor={COLOR_PALLETE.textPrimary}
+             fit
+             caps
+             lineHeight={1}
+           >
+           A Potential Solution
+           </Heading>
+               <Text
+                 caps
+                 textAlign={
+                   "centre"
+                   }
+                   textSize={24}
+                 textColor={COLOR_PALLETE.textPrimary}
+                 margin={10}
+                 >
+                 Templated Policies
+               </Text>
+               <CodePane textSize={16} lang="python" source={`
+         {% for resource in deny_resource -%}
 
-    </Fill>
-    <Fill style={{padding:"10px"}} align='center flex-start'>
-      <Appear order="3">
-        <div>
+         deny[msg] {
+             input.request.resource.resource = "{{resource}}"
+             isCreate
+             msg := "You can't create {{resource}} resource in this Cluster"
+         }
+
+         {% endfor -%}
+                   `} />
+         </Slide>,
+<Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
         <Text
         caps
         textAlign={
@@ -341,10 +325,6 @@ deny[msg] {
 deny_resource:
 - ingresses
           `} />
-        </div>
-      </Appear>
-    </Fill>
-    </Layout>
     <Notes>
     - Common library of policies to get up and running which reduces the cognitive workload
     - Templated policies which can be used to template rego now, and CRDs later when Gatekeeper is introducted for a graceful migration
@@ -366,6 +346,11 @@ deny_resource:
     <Fill>
     <Appear order={1}>
       <div>
+        <List>
+          <ListItem>Unit testing policy with 100% coverage</ListItem>
+    <ListItem>Integration testing validation and mutation policies</ListItem>
+        </List>
+
       <Text
         caps
         textAlign={
