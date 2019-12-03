@@ -562,7 +562,6 @@ tests:
       margin="100px 0 100px 0"
       size={3}
       textColor={COLOR_PALLETE.textPrimary}
-      fit
       caps
       lineHeight={1}
     >
@@ -582,7 +581,7 @@ tests:
           </List>
       </Fill>
       <Fill align="center" style={{ padding: "10px" }}>
-        <Image src={AnchorCTL} />
+        <Image height={300} src={AnchorCTL} />
       </Fill>
     </Layout>
   </Slide>,

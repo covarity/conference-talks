@@ -31,7 +31,7 @@ export default [
    >
    Workflow
    </Heading>
-   <Image height={600} margin={"100px auto"} src={WorkflowPR} />
+   <Image height={600} margin={"20px auto"} src={WorkflowPR} />
 </Slide>,
 <Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
   <Heading
