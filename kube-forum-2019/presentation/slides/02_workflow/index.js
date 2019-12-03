@@ -225,5 +225,22 @@ export default [
   Demo
   </Heading>
   <Text italic={true} textColor={COLOR_PALLETE.textPrimary}></Text>
-</Slide>
+</Slide>,
+<Slide
+  align="center center-top"
+  transition={["zoom"]}
+  bgColor={COLOR_PALLETE.background}
+>
+  <Heading
+    margin="100px 0 100px 0"
+    size={1}
+    textColor={COLOR_PALLETE.textPrimary}
+    lineHeight={1}
+  >
+    Thank You!
+  </Heading>
+  <Text italic={true} textColor={COLOR_PALLETE.textPrimary}> Tejas Cherukara tejas@anz.com </Text>
+  <Text italic={true} textColor={COLOR_PALLETE.textPrimary}> Ben Ebsworth ben.ebsworth@digio.com.au </Text>
+
+</Slide>,
 ]

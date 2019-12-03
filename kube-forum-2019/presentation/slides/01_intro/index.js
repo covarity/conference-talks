@@ -16,6 +16,7 @@ import {
 import IntroBackground from "./../../../assets/intro-background.png";
 import WorkflowPR from "./../../../assets/workflow-pr.png";
 import AnchorCTL from  './../../../assets/anchorctl.png'
+import OPA from  './../../../assets/opa.png'
 
 const COLOR_PALLETE = {
   background: "#020003",
@@ -28,6 +29,7 @@ export default [
     align="center center-top"
     transition={["zoom"]}
     bgImage={IntroBackground}
+    fill
   >
     <Heading
       margin="100px 0 400px 0"
@@ -59,7 +61,7 @@ export default [
     </Text>
   </Slide>,
   <Slide
-    align="center center"
+    align="center center-top"
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
@@ -67,12 +69,11 @@ export default [
       margin="100px 0 100px 0"
       size={1}
       textColor={COLOR_PALLETE.textPrimary}
-      fit
-      caps
       lineHeight={1}
     >
       What is OPA?
     </Heading>
+    <Image height={500} src={OPA} />
   </Slide>,
   <Slide
     align="center flex-start"
@@ -80,14 +81,13 @@ export default [
     bgColor={COLOR_PALLETE.background}
   >
     <Heading
-      margin="100px 0 100px 0"
+      margin="100px 0 50px 0"
       size={4}
       textColor={COLOR_PALLETE.textPrimary}
-      fit
       caps
       lineHeight={1}
     >
-      Adoption Journey - Use Cases
+      Use Case: Dev Guardrails
     </Heading>
     <Layout>
       <Fill>
@@ -96,7 +96,7 @@ export default [
           caps
           textColor="secondary"
           bgColor="white"
-          margin={10}
+          margin={1}
         ></Heading>
         <Text textColor={COLOR_PALLETE.textPrimary}>
           Controlling `Service` resource type within environment. Preventing
@@ -161,14 +161,13 @@ export default [
     bgColor={COLOR_PALLETE.background}
   >
     <Heading
-      margin="100px 0 100px 0"
+      margin="100px 0 50px 0"
       size={4}
       textColor={COLOR_PALLETE.textPrimary}
-      fit
       caps
       lineHeight={1}
     >
-      Use Cases
+      Use Case: Security
     </Heading>
     <Layout>
       <Fill>
@@ -180,6 +179,7 @@ export default [
           margin={10}
         ></Heading>
         <Text textColor={COLOR_PALLETE.textPrimary}>
+          Isolate Sensitive Workloads
           Mutating deployments onto specific worker pools based of namespace etc
         </Text>
       </Fill>
@@ -191,7 +191,7 @@ export default [
           textColor={COLOR_PALLETE.textPrimary}
           margin={10}
         >
-          namespace-functionA → node-pool-A
+        🔒 namespace-functionA → node-pool-A
         </Text>
         <CodePane
           textSize={16}
@@ -227,20 +227,18 @@ export default [
     bgColor={COLOR_PALLETE.background}
   >
     <Heading
-      margin="100px 0 100px 0"
+      margin="100px 0 50px 0"
       size={4}
       textColor={COLOR_PALLETE.textPrimary}
-      fit
       caps
       lineHeight={1}
     >
-      Use Cases
+      Use Case: Administrative
     </Heading>
     <Layout>
       <Fill align="center">
         <Text textColor={COLOR_PALLETE.textPrimary}>
-          Control which resources can be deployed into which namespace based on
-          team and/or cluster
+          Mutate labels onto workloads to teams to identify billing information and teams.
         </Text>
       </Fill>
       <Fill>
@@ -251,7 +249,7 @@ export default [
           textColor={COLOR_PALLETE.textPrimary}
           margin={10}
         >
-          ✅ Allow Deployment resource
+        🧳 Append Labels to Resources
         </Text>
         <CodePane
           textSize={16}
@@ -262,28 +260,9 @@ export default [
         metadata:
           name: myDeployment
           namespace: teamA
-        spec:
-          ...
-          `}
-        />
-        <Text
-          caps
-          textSize={24}
-          textAlign={"left"}
-          textColor={COLOR_PALLETE.textPrimary}
-          margin={10}
-        >
-          ❌ deny DaemonSet resource
-        </Text>
-        <CodePane
-          textSize={16}
-          lang="yaml"
-          source={`
-        apiVersion: v1
-        kind: DaemonSet
-        metadata:
-          name: myDaemonSet
-          namespace: teamA
+          labels:
+            app.company.com/team: team-a
+            app.company.com/cost-center: cost-center
         spec:
           ...
           `}
@@ -311,37 +290,67 @@ export default [
     </Heading>
   </Slide>,
   <Slide
-    align="center center"
+    align="center flex-start"
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Heading
-      margin="100px 0 100px 0"
+      margin="100px 0 25px 0"
       size={3}
       textColor={COLOR_PALLETE.textPrimary}
       caps
       italic
       lineHeight={1}
     >
-      Simplify the maintenance and extension of policies
+      Simplified extension / maintenance
     </Heading>
     <Layout>
       <Fill height={500} align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
-          <ListItem>common library of helper functions</ListItem>
+          <ListItem>Common library of helper functions</ListItem>
         </List>
       </Fill>
       <Appear order={1}>
         <Fill>
+        <Text
+          caps
+          textAlign={"left"}
+          textSize={24}
+          textColor={COLOR_PALLETE.textPrimary}
+          margin={10}
+        >
+        Common Library
+        </Text>
           <CodePane
             textSize={16}
             lang="bash"
             source={`
-  kube
-  ├── common
-      ...
-  ├── deny-resource
-  ├── lb-services
+  package common
+
+  hasLabel(obj, label) {
+    obj.metadata.labels[label]
+  }
+          `}
+          />
+        <Text
+          caps
+          textAlign={"left"}
+          textSize={24}
+          textColor={COLOR_PALLETE.textPrimary}
+          margin={10}
+        >
+        Reuse Common Library functions
+        </Text>
+                    <CodePane
+            textSize={16}
+            lang="bash"
+            source={`
+  package admin-labels
+
+  deny[msg] {
+    common.hasLabel(input, "app.company.com/cost-center")
+    msg := "Cannot Deploy workloads without app.company.com/cost-center label."
+  }
           `}
           />
         </Fill>
@@ -362,20 +371,20 @@ export default [
     bgColor={COLOR_PALLETE.background}
   >
     <Heading
-      margin="100px 0 100px 0"
+      margin="100px 0 50px 0"
       size={3}
       textColor={COLOR_PALLETE.textPrimary}
       caps
       italic
       lineHeight={1}
     >
-      Decoupling the underlying admission control solution (ie OPA)
+      Admission Controller Agnostic
     </Heading>
     <Layout>
       <Fill height={500} align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
-          <ListItem>templating rego based policies</ListItem>
-          <ListItem>templating unit-tests for corresponding policies</ListItem>
+          <ListItem>Templating rego based policies</ListItem>
+          <ListItem>Templating unit-tests for corresponding policies</ListItem>
         </List>
       </Fill>
       <Appear order={1}>
@@ -384,15 +393,20 @@ export default [
             textSize={16}
             lang="python"
             source={`
-         {% for resource in deny_resource -%}
+{% for labelResource in mutate_label -%}
+patch [patchCode] {
+  isCreateOrUpdate
+  labelResourcesList := [
+      {%- for resource in labelResource.resources -%}
+          "{{resource}}"
+      {% endfor -%}
+    ]
+  input.request.resource.resource = labelResourcesList[_]
 
-         deny[msg] {
-             input.request.resource.resource = "{{resource}}"
-             isCreate
-             msg := "You can't create {{resource}} resource in this Cluster"
-         }
+  patchCode = { "op": "add", "path": "/metadata/labels/{{labelResource.label.key}}", "value": "{{labelResource.label.value}}" }
+}
 
-         {% endfor -%}
+{% endfor -%}
                    `}
           />
         </Fill>
@@ -426,8 +440,13 @@ export default [
             textSize={16}
             lang="yaml"
             source={`
-deny_resource:
-- ingresses
+    mutate_label:
+    - resources:
+      - deployments
+      - pods
+      label:
+        key: app.company.com/cost-center
+        value: sample-cost-center
           `}
           />
         </Fill>
@@ -491,14 +510,14 @@ test_deny_denyResource_{{ resource }} {
     bgColor={COLOR_PALLETE.background}
   >
     <Heading
-      margin="100px 0 100px 0"
+      margin="80px 0 30px 0"
       size={3}
       textColor={COLOR_PALLETE.textPrimary}
       caps
       italic
       lineHeight={1}
     >
-      Integration testing validation and mutation policies
+      Integration testing
     </Heading>
     <Layout>
       <Fill height={500} align="center center">
@@ -510,11 +529,9 @@ test_deny_denyResource_{{ resource }} {
             Carries out end-to-end tests of OPA policies in a running kubernetes
             environment
           </ListItem>
-          <List textColor={COLOR_PALLETE.textPrimary}>
-            <ListItem>Assert status of OPA deploy and configmaps</ListItem>
+          <ListItem>Assert status of OPA deploy and configmaps</ListItem>
             <ListItem>Assert Validating Admission webhook works</ListItem>
             <ListItem>Assert Mutating Admission webhook works</ListItem>
-          </List>
         </List>
       </Fill>
       <Appear order={1}>
