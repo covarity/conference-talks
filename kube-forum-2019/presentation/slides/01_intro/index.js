@@ -179,8 +179,8 @@ export default [
           margin={10}
         ></Heading>
         <Text textColor={COLOR_PALLETE.textPrimary}>
-          Isolate Sensitive Workloads
-          Mutating deployments onto specific worker pools based of namespace etc
+          Isolate Sensitive Workloads and
+          mutate deployments onto specific worker pools based of namespaces.
         </Text>
       </Fill>
       <Fill>
@@ -191,7 +191,7 @@ export default [
           textColor={COLOR_PALLETE.textPrimary}
           margin={10}
         >
-        🔒 namespace-functionA → node-pool-A
+        🔒 namespace-A → node-pool-A
         </Text>
         <CodePane
           textSize={16}
@@ -238,7 +238,7 @@ export default [
     <Layout>
       <Fill align="center">
         <Text textColor={COLOR_PALLETE.textPrimary}>
-          Mutate labels onto workloads to teams to identify billing information and teams.
+          Mutate labels onto workloads in order to identify billing information and teams.
         </Text>
       </Fill>
       <Fill>
@@ -286,7 +286,7 @@ export default [
       caps
       lineHeight={1}
     >
-      Production Outcomes
+      Production Requirements
     </Heading>
   </Slide>,
   <Slide
@@ -384,7 +384,7 @@ export default [
       <Fill height={500} align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>Templating rego based policies</ListItem>
-          <ListItem>Templating unit-tests for corresponding policies</ListItem>
+          <ListItem>Provides graceful migration from OPA to Gatekeeper</ListItem>
         </List>
       </Fill>
       <Appear order={1}>
