@@ -10,6 +10,10 @@ import {
   Code,
 } from 'spectacle'
 
+import Workflow from './components/Workflow';
+
+
+import { workflowLabels } from './messages';
 import WorkflowPR from  './../../../assets/workflow-pr.png'
 import Tekton from  './../../../assets/tekton.png'
 
@@ -31,7 +35,7 @@ export default [
    >
    Workflow
    </Heading>
-   <Image height={600} margin={"20px auto"} src={WorkflowPR} />
+   <Workflow labels={workflowLabels} />
 </Slide>,
 <Slide align='center flex-start' transition={['zoom']} bgColor={COLOR_PALLETE.background}>
   <Heading

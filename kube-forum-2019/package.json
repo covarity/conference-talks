@@ -21,6 +21,7 @@
     "babel-plugin-prismjs": "^1.1.1",
     "builder": "^4.0.0",
     "firebase": "^5.11.1",
+    "glob": "^7.1.6",
     "normalize.css": "8.0.0",
     "prismjs": "^1.17.0",
     "rc-progress": "^2.5.2",

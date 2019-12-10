@@ -2,6 +2,7 @@
 
 var path = require('path');
 var webpack = require('webpack');
+var glob = require("glob");
 
 module.exports = {
   mode: 'development',
@@ -62,63 +63,20 @@ module.exports = {
     },
     {
       test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "presentation", "slides", "01_intro", "components", "Architecture", "images")
+      loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
+      include: glob.sync(
+        `${__dirname}/presentation/slides/**/**/**/images/`
+      ),
     },
     {
-      test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "presentation", "slides", "01_intro", "components", "Topology", "images")
-    },
-    {
-      test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "presentation", "slides", "02_environment_setup", "components", "Architecture", "images")
-    },
-    {
-      test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "presentation", "slides", "02_environment_setup", "components", "Topology", "images")
-    },
-    {
-      test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "presentation", "slides", "03_kubernetes_concepts", "components", "Resources", "images")
-    },
-    {
-      test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "presentation", "slides", "05_istio_concepts", "components", "Architecture", "images")
-    },
-    {
-      test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "presentation", "slides", "05_istio_concepts", "components", "APILifeCycle", "images")
-    },
-    {
-      test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "presentation", "slides", "05_istio_concepts", "components", "IngressFlowBasic", "images")
-    },
-    {
-      test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "presentation", "slides", "05_istio_concepts", "components", "Security", "images")
-    },
-    {
-      test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "presentation", "slides", "05_istio_concepts", "components", "Tracing", "images")
-    },
-    {
-      test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "presentation", "slides", "05_istio_concepts", "components", "EgressFlowBasic", "images")
-    },
-    {
-      test: /\.svg$/,
-      loader: "url-loader?limit=10000&mimetype=image/svg+xml",
-      include: path.join(__dirname, "presentation", "slides", "05_istio_concepts", "components", "EgressFlowAdvanced", "images")
+      test: /\.png$/,
+      loader: 'url-loader',
+      include: glob.sync(
+        `${__dirname}/presentation/slides/**/**/**/images/`
+      ),
+      options: {
+        mimetype: 'image/png'
+      }
     },
     {
       test: /\.png$/,

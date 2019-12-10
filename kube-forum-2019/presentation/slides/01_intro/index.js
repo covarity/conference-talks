@@ -13,6 +13,9 @@ import {
   Appear,
 } from "spectacle";
 
+
+import Banner from '../../components/Banner';
+
 import IntroBackground from "./../../../assets/intro-background.png";
 import WorkflowPR from "./../../../assets/workflow-pr.png";
 import AnchorCTL from  './../../../assets/anchorctl.png'
@@ -29,10 +32,11 @@ export default [
     align="center center-top"
     transition={["zoom"]}
     bgImage={IntroBackground}
+    style={{ backgroundSize: "100vw 100vh"}}
     fill
   >
     <Heading
-      margin="100px 0 400px 0"
+      margin="100px 0 470px 0"
       size={1}
       textColor={COLOR_PALLETE.textPrimary}
       align="center center-top"
@@ -74,12 +78,16 @@ export default [
       What is OPA?
     </Heading>
     <Image height={500} src={OPA} />
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
   </Slide>,
   <Slide
     align="center flex-start"
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 50px 0"
       size={4}
@@ -87,10 +95,10 @@ export default [
       caps
       lineHeight={1}
     >
-      Use Case: Dev Guardrails
+      Use Case - Dev Guardrails
     </Heading>
-    <Layout>
-      <Fill>
+    <Layout style={{ alignItems: "center" }}>
+      <Fill align="center">
         <Heading
           size={6}
           caps
@@ -109,13 +117,14 @@ export default [
           textAlign={"left"}
           textSize={24}
           textColor={COLOR_PALLETE.textPrimary}
-          margin={10}
+          style={{ marginLeft: 50, marginBottom: 20 }}
         >
           ✅ allow internal service
         </Text>
         <CodePane
           textSize={16}
           lang="yaml"
+          style={{ marginLeft: 50 }}
           source={`
         apiVersion: v1
         kind: Service
@@ -131,12 +140,13 @@ export default [
           textSize={25}
           textAlign={"left"}
           textColor={COLOR_PALLETE.textPrimary}
-          margin={10}
+          style={{ marginLeft: 50, marginBottom: 20, marginTop: 20 }}
         >
           ❌ deny external service
         </Text>
         <CodePane
           textSize={16}
+          style={{ marginLeft: 50 }}
           lang="yaml"
           source={`
         apiVersion: v1
@@ -160,6 +170,8 @@ export default [
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 50px 0"
       size={4}
@@ -167,9 +179,9 @@ export default [
       caps
       lineHeight={1}
     >
-      Use Case: Security
+      Use Case - Security
     </Heading>
-    <Layout>
+    <Layout style={{ alignItems: "center", height: 577 }}>
       <Fill>
         <Heading
           size={6}
@@ -189,13 +201,14 @@ export default [
           textAlign={"left"}
           textSize={24}
           textColor={COLOR_PALLETE.textPrimary}
-          margin={10}
+          style={{ marginLeft: 50, marginBottom: 20 }}
         >
         🔒 namespace-A → node-pool-A
         </Text>
         <CodePane
           textSize={16}
           lang="yaml"
+          style={{ marginLeft: 50 }}
           source={`
         apiVersion: v1
         kind: Pod
@@ -226,6 +239,8 @@ export default [
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 50px 0"
       size={4}
@@ -233,9 +248,9 @@ export default [
       caps
       lineHeight={1}
     >
-      Use Case: Administrative
+      Use Case - Administrative
     </Heading>
-    <Layout>
+    <Layout style={{ alignItems: "center", height: 577 }}>
       <Fill align="center">
         <Text textColor={COLOR_PALLETE.textPrimary}>
           Mutate labels onto workloads in order to identify billing information and teams.
@@ -247,13 +262,14 @@ export default [
           textAlign={"left"}
           textSize={24}
           textColor={COLOR_PALLETE.textPrimary}
-          margin={10}
+          style={{ marginLeft: 50, marginBottom: 20 }}
         >
         🧳 Append Labels to Resources
         </Text>
         <CodePane
           textSize={16}
           lang="yaml"
+          style={{ marginLeft: 50 }}
           source={`
         apiVersion: v1
         kind: Deployment
@@ -275,15 +291,18 @@ export default [
     </Notes>
   </Slide>,
   <Slide
-    align="center flex-start"
+    align="center center"
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 100px 0"
       size={3}
       textColor={COLOR_PALLETE.textPrimary}
       caps
+      italic
       lineHeight={1}
     >
       Production Requirements
@@ -294,6 +313,8 @@ export default [
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 25px 0"
       size={3}
@@ -302,12 +323,13 @@ export default [
       italic
       lineHeight={1}
     >
-      Simplified extension / maintenance
+      Simplified extension & maintenance
     </Heading>
-    <Layout>
+    <Layout style={{ alignItems: "center" }}>
       <Fill height={500} align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>Common library of helper functions</ListItem>
+          <ListItem>Consistent way of creating and/or extending code base</ListItem>
         </List>
       </Fill>
       <Appear order={1}>
@@ -370,6 +392,8 @@ export default [
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 50px 0"
       size={3}
@@ -380,8 +404,8 @@ export default [
     >
       Admission Controller Agnostic
     </Heading>
-    <Layout>
-      <Fill height={500} align="center center">
+    <Layout style={{ alignItems: "center", height: 500 }}>
+      <Fill  align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>Templating rego based policies</ListItem>
           <ListItem>Provides graceful migration from OPA to Gatekeeper</ListItem>
@@ -418,6 +442,8 @@ patch [patchCode] {
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 100px 0"
       size={3}
@@ -428,8 +454,8 @@ patch [patchCode] {
     >
       Provide an abstraction consistent with existing ecosystem (YAML)
     </Heading>
-    <Layout>
-      <Fill height={500} align="center center">
+    <Layout style={{ alignItems: "center", height: 300 }} >
+      <Fill align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>top level values.yaml which generates policy</ListItem>
         </List>
@@ -458,6 +484,8 @@ patch [patchCode] {
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 100px 0"
       size={3}
@@ -468,7 +496,7 @@ patch [patchCode] {
     >
       Unit testing policy with 100% coverage
     </Heading>
-    <Layout style={{ alignItems: "center" }}>
+    <Layout style={{ alignItems: "center", height: 500 }}>
       <Fill align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>unit testing policy using opa built-in capability</ListItem>
@@ -509,6 +537,8 @@ test_deny_denyResource_{{ resource }} {
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="80px 0 30px 0"
       size={3}
@@ -519,7 +549,7 @@ test_deny_denyResource_{{ resource }} {
     >
       Integration testing
     </Heading>
-    <Layout>
+    <Layout style={{ alignItems: "center", height: 700 }}>
       <Fill height={500} align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>
@@ -575,6 +605,8 @@ tests:
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 100px 0"
       size={3}
@@ -584,7 +616,7 @@ tests:
     >
       AnchorCTL
     </Heading>
-    <Layout style={{ alignItems: "center" }}>
+    <Layout style={{ alignItems: "center", height: 500 }}>
       <Fill>
           <List
             caps
@@ -598,7 +630,7 @@ tests:
           </List>
       </Fill>
       <Fill align="center" style={{ padding: "10px" }}>
-        <Image height={300} src={AnchorCTL} />
+        <Image height={500} src={AnchorCTL} />
       </Fill>
     </Layout>
   </Slide>,
