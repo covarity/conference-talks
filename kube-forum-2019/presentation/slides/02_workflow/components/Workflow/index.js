@@ -68,7 +68,7 @@ class Workflow extends React.Component {
     }
     updateWindowDimensions() {
         // console.log((window.innerWidth / window.innerHeight) * (395/526))
-        this.setState({ width: window.innerWidth, height: window.innerHeight, scale: (window.innerWidth / window.innerHeight) * (526/395) * (0.90)})
+        this.setState({ width: window.innerWidth, height: window.innerHeight, scale: (window.innerWidth / window.innerHeight) * (526/395) * (1.1)})
     }
     componentDidMount() {
         this.updateWindowDimensions()

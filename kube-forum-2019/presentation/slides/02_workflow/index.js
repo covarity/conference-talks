@@ -11,9 +11,9 @@ import {
 } from "spectacle";
 
 import Workflow from "./components/Workflow";
+import Banner from "./../../components/Banner";
 
 import { workflowLabels } from "./messages";
-import WorkflowPR from "./../../../assets/workflow-pr.png";
 import Tekton from "./../../../assets/tekton.png";
 
 const COLOR_PALLETE = {
@@ -28,6 +28,8 @@ export default [
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="topRight" text={"@sycli"} />
+    <Banner position="topLeft" text={"@space_tj"} />
     <Heading size={5} textColor={COLOR_PALLETE.textPrimary} caps lineHeight={1}>
       Workflow
     </Heading>
@@ -38,6 +40,8 @@ export default [
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 100px 0"
       size={5}
@@ -93,6 +97,8 @@ export default [
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 100px 0"
       size={5}
@@ -125,6 +131,8 @@ export default [
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 100px 0"
       size={5}
@@ -160,6 +168,8 @@ export default [
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 100px 0"
       size={5}
@@ -194,6 +204,8 @@ export default [
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 100px 0"
       size={5}
@@ -229,6 +241,8 @@ export default [
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 100px 0"
       size={5}
@@ -265,6 +279,8 @@ export default [
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 100px 0"
       size={1}

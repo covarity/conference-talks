@@ -30,11 +30,19 @@ const BannerWrapperBottomLeft = styled(BannerBase)`
 const BannerWrapperTopRight = styled(BannerBase)`
   position: absolute;
   color: white;
+  right: 0;
+  top: 0;
+  margin-right: 5%;
+  margin-top: 5%;
 `
 
 const BannerWrapperTopLeft = styled(BannerBase)`
   position: absolute;
   color: white;
+  left: 0;
+  top: 0;
+  margin-left: 5%;
+  margin-top: 5%;
 `
 
 const Banner = props => {
@@ -43,9 +51,9 @@ const Banner = props => {
       return <BannerWrapperBottomRight><div>{props.text}</div></BannerWrapperBottomRight>
     case "bottomLeft":
       return <BannerWrapperBottomLeft><div>{props.text}</div></BannerWrapperBottomLeft>
-    case "TopRight":
+    case "topRight":
       return <BannerWrapperTopRight><div>{props.text}</div></BannerWrapperTopRight>
-    case "TopLeft":
+    case "topLeft":
       return <BannerWrapperTopLeft><div>{props.text}</div></BannerWrapperTopLeft>
     default:
       return <BannerWrapperTopLeft><div>{props.text}</div></BannerWrapperTopLeft>

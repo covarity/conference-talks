@@ -42,7 +42,7 @@ export const DiagramWrapper = styled.div`
     grid-area: diagram;
     transform: scale(${props => props.scale > 1.5 ? 1.5 : props.scale});
     @media only screen and (min-width: 1200px) {
-        transform: scale(${props => props.scale > 2.3 ? 2.3 : props.scale});
+        transform: scale(${props => props.scale > 2.7 ? 2.7 : props.scale});
     }
     
     display: inline-flex;
