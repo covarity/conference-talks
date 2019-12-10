@@ -67,7 +67,7 @@ export const GitHubImageWrapper = styled.img`
     bottom: ${props => props.selected ? 405 : 400}px;
     filter: ${props =>
         props.selected
-          ? `drop-shadow(20px 0 10px #FBE83D) drop-shadow(-20px 0 10px #FBE83D);`
+          ? `drop-shadow(15px 0 10px #FBE83D) drop-shadow(-15px 0 10px #FBE83D);`
           : `none`};
     
 `

@@ -64,7 +64,7 @@ class Workflow extends React.Component {
         }
     }
     handleHover(index) {
-        this.setState({ index: index});
+        // this.setState({ index: index});
     }
     updateWindowDimensions() {
         // console.log((window.innerWidth / window.innerHeight) * (395/526))

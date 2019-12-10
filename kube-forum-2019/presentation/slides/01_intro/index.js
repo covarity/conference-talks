@@ -13,13 +13,12 @@ import {
   Appear,
 } from "spectacle";
 
-
-import Banner from '../../components/Banner';
+import Banner from "../../components/Banner";
 
 import IntroBackground from "./../../../assets/intro-background.png";
 import WorkflowPR from "./../../../assets/workflow-pr.png";
-import AnchorCTL from  './../../../assets/anchorctl.png'
-import OPA from  './../../../assets/opa.png'
+import AnchorCTL from "./../../../assets/anchorctl.png";
+import OPA from "./../../../assets/opa.png";
 
 const COLOR_PALLETE = {
   background: "#020003",
@@ -32,7 +31,7 @@ export default [
     align="center center-top"
     transition={["zoom"]}
     bgImage={IntroBackground}
-    style={{ backgroundSize: "100vw 100vh"}}
+    style={{ backgroundSize: "100vw 100vh" }}
     fill
   >
     <Heading
@@ -191,8 +190,8 @@ export default [
           margin={10}
         ></Heading>
         <Text textColor={COLOR_PALLETE.textPrimary}>
-          Isolate Sensitive Workloads and
-          mutate deployments onto specific worker pools based of namespaces.
+          Isolate Sensitive Workloads and mutate deployments onto specific
+          worker pools based of namespaces.
         </Text>
       </Fill>
       <Fill>
@@ -203,7 +202,7 @@ export default [
           textColor={COLOR_PALLETE.textPrimary}
           style={{ marginLeft: 50, marginBottom: 20 }}
         >
-        🔒 namespace-A → node-pool-A
+          🔒 namespace-A → node-pool-A
         </Text>
         <CodePane
           textSize={16}
@@ -253,7 +252,8 @@ export default [
     <Layout style={{ alignItems: "center", height: 577 }}>
       <Fill align="center">
         <Text textColor={COLOR_PALLETE.textPrimary}>
-          Mutate labels onto workloads in order to identify billing information and teams.
+          Mutate labels onto workloads in order to identify billing information
+          and teams.
         </Text>
       </Fill>
       <Fill>
@@ -264,7 +264,7 @@ export default [
           textColor={COLOR_PALLETE.textPrimary}
           style={{ marginLeft: 50, marginBottom: 20 }}
         >
-        🧳 Append Labels to Resources
+          🧳 Append Labels to Resources
         </Text>
         <CodePane
           textSize={16}
@@ -329,20 +329,22 @@ export default [
       <Fill height={500} align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>Common library of helper functions</ListItem>
-          <ListItem>Consistent way of creating and/or extending code base</ListItem>
+          <ListItem>
+            Consistent way of creating and/or extending code base
+          </ListItem>
         </List>
       </Fill>
       <Appear order={1}>
         <Fill>
-        <Text
-          caps
-          textAlign={"left"}
-          textSize={24}
-          textColor={COLOR_PALLETE.textPrimary}
-          margin={10}
-        >
-        Common Library
-        </Text>
+          <Text
+            caps
+            textAlign={"left"}
+            textSize={24}
+            textColor={COLOR_PALLETE.textPrimary}
+            margin={10}
+          >
+            Common Library
+          </Text>
           <CodePane
             textSize={16}
             lang="bash"
@@ -354,16 +356,16 @@ export default [
   }
           `}
           />
-        <Text
-          caps
-          textAlign={"left"}
-          textSize={24}
-          textColor={COLOR_PALLETE.textPrimary}
-          margin={10}
-        >
-        Reuse Common Library functions
-        </Text>
-                    <CodePane
+          <Text
+            caps
+            textAlign={"left"}
+            textSize={24}
+            textColor={COLOR_PALLETE.textPrimary}
+            margin={10}
+          >
+            Reuse Common Library functions
+          </Text>
+          <CodePane
             textSize={16}
             lang="bash"
             source={`
@@ -405,10 +407,12 @@ export default [
       Admission Controller Agnostic
     </Heading>
     <Layout style={{ alignItems: "center", height: 500 }}>
-      <Fill  align="center center">
+      <Fill align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>Templating rego based policies</ListItem>
-          <ListItem>Provides graceful migration from OPA to Gatekeeper</ListItem>
+          <ListItem>
+            Provides graceful migration from OPA to Gatekeeper
+          </ListItem>
         </List>
       </Fill>
       <Appear order={1}>
@@ -454,7 +458,7 @@ patch [patchCode] {
     >
       Provide an abstraction consistent with existing ecosystem (YAML)
     </Heading>
-    <Layout style={{ alignItems: "center", height: 300 }} >
+    <Layout style={{ alignItems: "center", height: 300 }}>
       <Fill align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>top level values.yaml which generates policy</ListItem>
@@ -560,8 +564,8 @@ test_deny_denyResource_{{ resource }} {
             environment
           </ListItem>
           <ListItem>Assert status of OPA deploy and configmaps</ListItem>
-            <ListItem>Assert Validating Admission webhook works</ListItem>
-            <ListItem>Assert Mutating Admission webhook works</ListItem>
+          <ListItem>Assert Validating Admission webhook works</ListItem>
+          <ListItem>Assert Mutating Admission webhook works</ListItem>
         </List>
       </Fill>
       <Appear order={1}>
@@ -618,16 +622,16 @@ tests:
     </Heading>
     <Layout style={{ alignItems: "center", height: 500 }}>
       <Fill>
-          <List
-            caps
-            textAlign={"centre"}
-            textSize={"24"}
-            textColor={COLOR_PALLETE.textPrimary}
-          >
-            <ListItem>Opensource CLI tool written in Golang</ListItem>
-            <ListItem>Collection of Kubernetes test helps</ListItem>
-            <ListItem>Tests defined through YAML interface</ListItem>
-          </List>
+        <List
+          caps
+          textAlign={"centre"}
+          textSize={"24"}
+          textColor={COLOR_PALLETE.textPrimary}
+        >
+          <ListItem>Opensource CLI tool written in Golang</ListItem>
+          <ListItem>Collection of Kubernetes test helps</ListItem>
+          <ListItem>Tests defined through YAML interface</ListItem>
+        </List>
       </Fill>
       <Fill align="center" style={{ padding: "10px" }}>
         <Image height={500} src={AnchorCTL} />
