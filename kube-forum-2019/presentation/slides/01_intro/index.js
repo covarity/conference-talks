@@ -16,9 +16,9 @@ import {
 import Banner from "../../components/Banner";
 
 import IntroBackground from "./../../../assets/intro-background.png";
-import WorkflowPR from "./../../../assets/workflow-pr.png";
 import AnchorCTL from "./../../../assets/anchorctl.png";
 import OPA from "./../../../assets/opa.png";
+import AnchorCTLOverview from '../../../assets/anchorctl-overview.png'
 
 const COLOR_PALLETE = {
   background: "#020003",
@@ -372,7 +372,7 @@ export default [
   package admin-labels
 
   deny[msg] {
-    common.hasLabel(input, "app.company.com/cost-center")
+    not common.hasLabel(input, "app.company.com/cost-center")
     msg := "Cannot Deploy workloads without app.company.com/cost-center label."
   }
           `}
@@ -557,15 +557,15 @@ test_deny_denyResource_{{ resource }} {
       <Fill height={500} align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>
-            Built opensource tool for defining integration tests as YAML
+            Requirements:
           </ListItem>
           <ListItem>
-            Carries out end-to-end tests of OPA policies in a running kubernetes
+
+          </ListItem>
+          <ListItem>
+            carries out end-to-end tests of OPA policies in a running kubernetes
             environment
           </ListItem>
-          <ListItem>Assert status of OPA deploy and configmaps</ListItem>
-          <ListItem>Assert Validating Admission webhook works</ListItem>
-          <ListItem>Assert Mutating Admission webhook works</ListItem>
         </List>
       </Fill>
       <Appear order={1}>
@@ -638,6 +638,22 @@ tests:
       </Fill>
     </Layout>
   </Slide>,
+    <Slide
+    align="center flex-start"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
+  >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
+    <Heading size={5} textColor={COLOR_PALLETE.textPrimary} caps lineHeight={1}>
+      Overview
+    </Heading>
+    <Layout style={{ alignItems: "center" }}>
+        <Fill align="center" style={{ padding: "10px" }}>
+          <Image src={AnchorCTLOverview} />
+        </Fill>
+      </Layout>
+  </Slide>
 ];
 // Consistent interface for developers to interact with: similar to helm charts
 // Reduces cognitive effort required to get up and running
