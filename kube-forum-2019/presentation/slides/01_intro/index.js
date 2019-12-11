@@ -569,13 +569,13 @@ test_deny_denyResource_{{ resource }} {
           </Text>
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>
-           Assert that configmaps have the `openpolicyagent.org/policy-status: status:ok` annotation.
+           Validate that rego configs are correctly parsed
           </ListItem>
           <ListItem>
-            Assert validation errors are thrown.
+            Ensure that resources which fail the validation webhook throws the expected error
           </ListItem>
           <ListItem>
-            Assert that mutation policy .
+            Ensure that resources have the expected mutation once created
           </ListItem>
         </List>
       </Fill>
