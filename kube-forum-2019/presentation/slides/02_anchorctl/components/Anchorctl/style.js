@@ -100,7 +100,7 @@ export const TeardownImageWrapper = styled.img`
     bottom: ${props => props.selected ? 300 : 295}px;
     filter: ${props =>
         props.selected
-          ? `drop-shadow(20px 0 10px #FBE83D) drop-shadow(-30px 0 10px #FBE83D);`
+          ? `drop-shadow(30px 0 10px #FBE83D) drop-shadow(-30px 0 10px #FBE83D);`
           : `none`};
 `;
 
