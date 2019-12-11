@@ -82,7 +82,8 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transitionIn={["zoom"]}
+    transitionOut={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -292,7 +293,8 @@ export default [
   </Slide>,
   <Slide
     align="center center"
-    transition={["zoom", "slide"]}
+    transitionIn={["zoom"]}
+    transitionOut={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -556,104 +558,28 @@ test_deny_denyResource_{{ resource }} {
     </Heading>
     <Layout style={{ alignItems: "center", height: 700 }}>
       <Fill height={500} align="center center">
+      <Text
+            // caps
+            textAlign={"left"}
+
+            textColor={COLOR_PALLETE.textPrimary}
+            margin={10}
+          >
+            Requirements: Ability to assert the functionality of OPA policies in a real cluster.
+          </Text>
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>
-            Requirements:
+           Assert that configmaps have the `openpolicyagent.org/policy-status: status:ok` annotation.
           </ListItem>
           <ListItem>
-
+            Assert validation errors are thrown.
           </ListItem>
           <ListItem>
-            carries out end-to-end tests of OPA policies in a running kubernetes
-            environment
+            Assert that mutation policy .
           </ListItem>
         </List>
       </Fill>
-      <Appear order={1}>
-        <Fill>
-          <CodePane
-            style={{ marginLeft: 50 }}
-            textSize={14}
-            lang="yaml"
-            source={`
-kind: KubernetesTest
-api: anchor.io/alpha1v1
-metadata:
-  name: podValidation
-objectRef:
-  kind: Pod
-  namespace: default
-  label:
-    key: run
-    value: nginx
-tests:
-- type: AssertJSONPath
-  jsonPath: ".spec.nodeName"
-  value: "docker-desktop"
-- type: AssertValidation
-  action: "CREATE"
-  filePath: "./samples/fixtures/loadbalancer.yaml"
-  expectedError: "Internal error occurred: admission webhook \"webhook.openpolicyagent.org\" denied the request: External Loadbalancers cannot be deployed in this cluster"
-- type: AssertMutation
-  action: "CREATE"
-  filePath: "./samples/fixtures/deploy.yaml"
-  jsonPath: ".metadata.labels.function"
-  value: "workload"
-          `}
-          />
-        </Fill>
-      </Appear>
     </Layout>
-  </Slide>,
-  <Slide
-    align="center flex-start"
-    transition={["zoom"]}
-    bgColor={COLOR_PALLETE.background}
-  >
-    <Banner position="bottomRight" text={"@sycli"} />
-    <Banner position="bottomLeft" text={"@space_tj"} />
-    <Heading
-      margin="100px 0 100px 0"
-      size={3}
-      textColor={COLOR_PALLETE.textPrimary}
-      caps
-      lineHeight={1}
-    >
-      AnchorCTL
-    </Heading>
-    <Layout style={{ alignItems: "center", height: 500 }}>
-      <Fill>
-        <List
-          caps
-          textAlign={"centre"}
-          textSize={"24"}
-          textColor={COLOR_PALLETE.textPrimary}
-        >
-          <ListItem>Opensource CLI tool written in Golang</ListItem>
-          <ListItem>Collection of Kubernetes test helps</ListItem>
-          <ListItem>Tests defined through YAML interface</ListItem>
-        </List>
-      </Fill>
-      <Fill align="center" style={{ padding: "10px" }}>
-        <Image height={500} src={AnchorCTL} />
-      </Fill>
-    </Layout>
-  </Slide>,
-    <Slide
-    align="center flex-start"
-    transition={["zoom"]}
-    bgColor={COLOR_PALLETE.background}
-  >
-    <Banner position="bottomRight" text={"@sycli"} />
-    <Banner position="bottomLeft" text={"@space_tj"} />
-    <Heading size={5} textColor={COLOR_PALLETE.textPrimary} caps lineHeight={1}>
-      Overview
-    </Heading>
-    <Layout style={{ alignItems: "center" }}>
-        <Fill align="center" style={{ padding: "10px" }}>
-          <Image src={AnchorCTLOverview} />
-        </Fill>
-      </Layout>
   </Slide>
 ];
 // Consistent interface for developers to interact with: similar to helm charts
