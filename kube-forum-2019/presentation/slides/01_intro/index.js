@@ -16,9 +16,9 @@ import {
 import Banner from "../../components/Banner";
 
 import IntroBackground from "./../../../assets/intro-background.png";
-import WorkflowPR from "./../../../assets/workflow-pr.png";
 import AnchorCTL from "./../../../assets/anchorctl.png";
 import OPA from "./../../../assets/opa.png";
+import AnchorCTLOverview from '../../../assets/anchorctl-overview.png'
 
 const COLOR_PALLETE = {
   background: "#020003",
@@ -82,7 +82,8 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transitionIn={["zoom"]}
+    transitionOut={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -292,7 +293,8 @@ export default [
   </Slide>,
   <Slide
     align="center center"
-    transition={["zoom", "slide"]}
+    transitionIn={["zoom"]}
+    transitionOut={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -372,7 +374,7 @@ export default [
   package admin-labels
 
   deny[msg] {
-    common.hasLabel(input, "app.company.com/cost-center")
+    not common.hasLabel(input, "app.company.com/cost-center")
     msg := "Cannot Deploy workloads without app.company.com/cost-center label."
   }
           `}
@@ -556,56 +558,29 @@ test_deny_denyResource_{{ resource }} {
     </Heading>
     <Layout style={{ alignItems: "center", height: 700 }}>
       <Fill height={500} align="center center">
+      <Text
+            // caps
+            textAlign={"left"}
+
+            textColor={COLOR_PALLETE.textPrimary}
+            margin={10}
+          >
+            Requirements: Ability to assert the functionality of OPA policies in a real cluster.
+          </Text>
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>
-            Built opensource tool for defining integration tests as YAML
+           Assert that configmaps have the `openpolicyagent.org/policy-status: status:ok` annotation.
           </ListItem>
           <ListItem>
-            Carries out end-to-end tests of OPA policies in a running kubernetes
-            environment
+            Assert validation errors are thrown.
           </ListItem>
-          <ListItem>Assert status of OPA deploy and configmaps</ListItem>
-          <ListItem>Assert Validating Admission webhook works</ListItem>
-          <ListItem>Assert Mutating Admission webhook works</ListItem>
+          <ListItem>
+            Assert that mutation policy .
+          </ListItem>
         </List>
       </Fill>
-      <Appear order={1}>
-        <Fill>
-          <CodePane
-            style={{ marginLeft: 50 }}
-            textSize={14}
-            lang="yaml"
-            source={`
-kind: KubernetesTest
-api: anchor.io/alpha1v1
-metadata:
-  name: podValidation
-objectRef:
-  kind: Pod
-  namespace: default
-  label:
-    key: run
-    value: nginx
-tests:
-- type: AssertJSONPath
-  jsonPath: ".spec.nodeName"
-  value: "docker-desktop"
-- type: AssertValidation
-  action: "CREATE"
-  filePath: "./samples/fixtures/loadbalancer.yaml"
-  expectedError: "Internal error occurred: admission webhook \"webhook.openpolicyagent.org\" denied the request: External Loadbalancers cannot be deployed in this cluster"
-- type: AssertMutation
-  action: "CREATE"
-  filePath: "./samples/fixtures/deploy.yaml"
-  jsonPath: ".metadata.labels.function"
-  value: "workload"
-          `}
-          />
-        </Fill>
-      </Appear>
     </Layout>
   </Slide>
-  
 ];
 // Consistent interface for developers to interact with: similar to helm charts
 // Reduces cognitive effort required to get up and running
