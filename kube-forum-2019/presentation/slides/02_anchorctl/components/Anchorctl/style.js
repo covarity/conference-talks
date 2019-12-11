@@ -59,70 +59,48 @@ export const DiagramLabel = styled.div`
 
 `;
 
-export const GitHubImageWrapper = styled.img`
+export const SetupImageWrapper = styled.img`
     position: absolute;
     z-index: 11;
     grid-area: image;
     width: 340px;
-    bottom: ${props => props.selected ? 405 : 400}px;
+    bottom: ${props => props.selected ? 395 : 390}px;
     filter: ${props =>
         props.selected
           ? `drop-shadow(15px 0 10px #FBE83D) drop-shadow(-15px 0 10px #FBE83D);`
           : `none`};
     
 `
-export const TektonTriggerImageWrapper = styled.img`
+export const LookupImageWrapper = styled.img`
     position: absolute;
     z-index: 2;
     width: 340px;
-    bottom: ${props => props.selected ? 395 : 390}px;
+    bottom: ${props => props.selected ? 370 : 364}px;
     filter: ${props =>
         props.selected
           ? `drop-shadow(40px 0 10px #FBE83D) drop-shadow(-30px 0 10px #FBE83D);`
           : `none`};
 `;
 
-export const PipelineRunImageWrapper = styled.img`
+export const AssertImageWrapper = styled.img`
     position: absolute;
     z-index: 2;
     width: 340px;
-    bottom: ${props => props.selected ? 350 : 345}px;
+    bottom: ${props => props.selected ? 300 : 295}px;
     filter: ${props =>
         props.selected
           ? `drop-shadow(20px 0 10px #FBE83D) drop-shadow(-20px 0 10px #FBE83D);`
           : `none`};
 `;
 
-export const GeneratePolicyImageWrapper = styled.img`
+export const TeardownImageWrapper = styled.img`
     position: absolute;
     z-index: 2;
     width: 340px;
-    bottom: ${props => props.selected ? 275 : 270}px;
+    bottom: ${props => props.selected ? 300 : 295}px;
     filter: ${props =>
         props.selected
           ? `drop-shadow(20px 0 10px #FBE83D) drop-shadow(-30px 0 10px #FBE83D);`
-          : `none`};
-`;
-
-export const UnitTestsImageWrapper = styled.img`
-    position: absolute;
-    z-index: 2;
-    width: 340px;
-    bottom: ${props => props.selected ? 220 : 220}px;
-    filter: ${props =>
-        props.selected
-          ? `drop-shadow(45px 0 10px #FBE83D) drop-shadow(-20px 0 10px #FBE83D);`
-          : `none`};
-`;
-
-export const IntegrationTestsImageWrapper = styled.img`
-    position: absolute;
-    z-index: 2;
-    width: 340px;
-    bottom: ${props => props.selected ? 260 : 255}px;
-    filter: ${props =>
-        props.selected
-          ? `drop-shadow(20px 0 10px #FBE83D) drop-shadow(-40px 0 10px #FBE83D);`
           : `none`};
 `;
 
@@ -130,5 +108,5 @@ export const BackgroundImageWrapper = styled.img`
     position: absolute;
     z-index: 2;
     width: 340px;
-    bottom: ${props => props.selected ? 220 : 220}px;
+    bottom: ${props => props.selected ? 368 : 368}px;
 `;

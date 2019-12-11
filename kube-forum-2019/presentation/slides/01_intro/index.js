@@ -29,7 +29,7 @@ const COLOR_PALLETE = {
 export default [
   <Slide
     align="center center-top"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgImage={IntroBackground}
     style={{ backgroundSize: "100vw 100vh" }}
     fill
@@ -65,11 +65,11 @@ export default [
   </Slide>,
   <Slide
     align="center center-top"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Heading
-      margin="100px 0 100px 0"
+      margin="100px 0 200px 0"
       size={1}
       textColor={COLOR_PALLETE.textPrimary}
       lineHeight={1}
@@ -106,7 +106,7 @@ export default [
           margin={1}
         ></Heading>
         <Text textColor={COLOR_PALLETE.textPrimary}>
-          Controlling `Service` resource type within environment. Preventing
+          Controlling Service resource type within environment. Preventing
           services being exposed unintentionally
         </Text>
       </Fill>
@@ -166,7 +166,7 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -191,7 +191,7 @@ export default [
         ></Heading>
         <Text textColor={COLOR_PALLETE.textPrimary}>
           Isolate Sensitive Workloads and mutate deployments onto specific
-          worker pools based of namespaces.
+          worker pools based of namespaces, using PodAffinity
         </Text>
       </Fill>
       <Fill>
@@ -235,7 +235,7 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -292,7 +292,7 @@ export default [
   </Slide>,
   <Slide
     align="center center"
-    transition={["zoom"]}
+    transition={["zoom", "slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -310,7 +310,7 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -391,7 +391,7 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -443,7 +443,7 @@ patch [patchCode] {
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -462,6 +462,7 @@ patch [patchCode] {
       <Fill align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
           <ListItem>top level values.yaml which generates policy</ListItem>
+          <ListItem>the UI by which developers can update configuration</ListItem>
         </List>
       </Fill>
       <Appear order={1}>
@@ -485,7 +486,7 @@ patch [patchCode] {
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -538,7 +539,7 @@ test_deny_denyResource_{{ resource }} {
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
