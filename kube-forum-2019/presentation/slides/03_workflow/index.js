@@ -30,7 +30,8 @@ const COLOR_PALLETE = {
 export default [
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transitionIn={["zoom"]}
+    transitionOut={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="topRight" text={"@sycli"} />
@@ -42,7 +43,7 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -99,7 +100,7 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -133,7 +134,7 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -170,7 +171,7 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -206,7 +207,7 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -243,7 +244,7 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -281,7 +282,8 @@ export default [
   </Slide>,
   <Slide
     align="center center"
-    transition={["zoom"]}
+    transitionIn={["zoom"]}
+    transitionOut={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -301,7 +303,7 @@ export default [
   </Slide>,
   <Slide
     align="center center"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
@@ -318,7 +320,7 @@ export default [
   </Slide>,
   <Slide
     align="center flex-start"
-    transition={["zoom"]}
+    transition={["slide"]}
     bgColor={COLOR_PALLETE.background}
   >
     <Banner position="bottomRight" text={"@sycli"} />
