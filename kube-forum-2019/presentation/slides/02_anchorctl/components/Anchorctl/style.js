@@ -64,7 +64,7 @@ export const SetupImageWrapper = styled.img`
     z-index: 11;
     grid-area: image;
     width: 340px;
-    bottom: ${props => props.selected ? 395 : 390}px;
+    bottom: ${props => props.selected ? 295 : 290}px;
     filter: ${props =>
         props.selected
           ? `drop-shadow(15px 0 10px #FBE83D) drop-shadow(-15px 0 10px #FBE83D);`
@@ -75,7 +75,7 @@ export const LookupImageWrapper = styled.img`
     position: absolute;
     z-index: 2;
     width: 340px;
-    bottom: ${props => props.selected ? 370 : 364}px;
+    bottom: ${props => props.selected ? 270 : 264}px;
     filter: ${props =>
         props.selected
           ? `drop-shadow(40px 0 10px #FBE83D) drop-shadow(-30px 0 10px #FBE83D);`
@@ -86,7 +86,7 @@ export const AssertImageWrapper = styled.img`
     position: absolute;
     z-index: 2;
     width: 340px;
-    bottom: ${props => props.selected ? 300 : 295}px;
+    bottom: ${props => props.selected ? 200 : 195}px;
     filter: ${props =>
         props.selected
           ? `drop-shadow(20px 0 10px #FBE83D) drop-shadow(-20px 0 10px #FBE83D);`
@@ -97,7 +97,7 @@ export const TeardownImageWrapper = styled.img`
     position: absolute;
     z-index: 2;
     width: 340px;
-    bottom: ${props => props.selected ? 300 : 295}px;
+    bottom: ${props => props.selected ? 200 : 195}px;
     filter: ${props =>
         props.selected
           ? `drop-shadow(30px 0 10px #FBE83D) drop-shadow(-30px 0 10px #FBE83D);`
@@ -108,5 +108,5 @@ export const BackgroundImageWrapper = styled.img`
     position: absolute;
     z-index: 2;
     width: 340px;
-    bottom: ${props => props.selected ? 368 : 368}px;
+    bottom: ${props => props.selected ? 268 : 268}px;
 `;

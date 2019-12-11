@@ -463,8 +463,8 @@ patch [patchCode] {
     <Layout style={{ alignItems: "center", height: 300 }}>
       <Fill align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
-          <ListItem>top level values.yaml which generates policy</ListItem>
-          <ListItem>the UI by which developers can update configuration</ListItem>
+          <ListItem>Top level values.yaml which generates policy</ListItem>
+          <ListItem>The UI by which developers can update configuration</ListItem>
         </List>
       </Fill>
       <Appear order={1}>
@@ -506,7 +506,7 @@ patch [patchCode] {
     <Layout style={{ alignItems: "center", height: 500 }}>
       <Fill align="center center">
         <List textColor={COLOR_PALLETE.textPrimary}>
-          <ListItem>unit testing policy using opa built-in capability</ListItem>
+          <ListItem>Utilise built-in opa dapability to define unit tests</ListItem>
           <ListItem>
             auto-generating unit tests corresponding to generated policy
           </ListItem>
