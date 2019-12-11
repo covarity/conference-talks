@@ -14,7 +14,7 @@ import Workflow from "./components/Workflow";
 import Balls from './components/Balls';
 
 
-import Banner from "./../../components/Banner";
+import Banner from "../../components/Banner";
 
 
 import { workflowLabels } from "./messages";

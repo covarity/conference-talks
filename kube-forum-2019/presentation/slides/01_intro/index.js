@@ -604,41 +604,8 @@ tests:
         </Fill>
       </Appear>
     </Layout>
-  </Slide>,
-  <Slide
-    align="center flex-start"
-    transition={["zoom"]}
-    bgColor={COLOR_PALLETE.background}
-  >
-    <Banner position="bottomRight" text={"@sycli"} />
-    <Banner position="bottomLeft" text={"@space_tj"} />
-    <Heading
-      margin="100px 0 100px 0"
-      size={3}
-      textColor={COLOR_PALLETE.textPrimary}
-      caps
-      lineHeight={1}
-    >
-      AnchorCTL
-    </Heading>
-    <Layout style={{ alignItems: "center", height: 500 }}>
-      <Fill>
-        <List
-          caps
-          textAlign={"centre"}
-          textSize={"24"}
-          textColor={COLOR_PALLETE.textPrimary}
-        >
-          <ListItem>Opensource CLI tool written in Golang</ListItem>
-          <ListItem>Collection of Kubernetes test helps</ListItem>
-          <ListItem>Tests defined through YAML interface</ListItem>
-        </List>
-      </Fill>
-      <Fill align="center" style={{ padding: "10px" }}>
-        <Image height={500} src={AnchorCTL} />
-      </Fill>
-    </Layout>
-  </Slide>,
+  </Slide>
+  
 ];
 // Consistent interface for developers to interact with: similar to helm charts
 // Reduces cognitive effort required to get up and running
