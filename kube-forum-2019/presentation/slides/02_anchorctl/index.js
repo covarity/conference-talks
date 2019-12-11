@@ -46,13 +46,12 @@ export default [
     <Layout style={{ alignItems: "center", height: 500 }}>
       <Fill>
         <List
-          caps
           textAlign={"centre"}
           textSize={"24"}
           textColor={COLOR_PALLETE.textPrimary}
         >
           <ListItem>Open source CLI tool written in Golang</ListItem>
-          <ListItem>Collection of Kubernetes test helps</ListItem>
+          <ListItem>Collection of assertion functions</ListItem>
           <ListItem>Tests defined through YAML interface</ListItem>
         </List>
       </Fill>
