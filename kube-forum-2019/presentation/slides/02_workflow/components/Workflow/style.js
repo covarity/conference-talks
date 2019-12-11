@@ -108,7 +108,7 @@ export const UnitTestsImageWrapper = styled.img`
     position: absolute;
     z-index: 2;
     width: 340px;
-    bottom: ${props => props.selected ? 220 : 220}px;
+    bottom: ${props => props.selected ? 225 : 220}px;
     filter: ${props =>
         props.selected
           ? `drop-shadow(45px 0 10px #FBE83D) drop-shadow(-20px 0 10px #FBE83D);`

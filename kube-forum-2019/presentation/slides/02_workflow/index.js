@@ -11,10 +11,15 @@ import {
 } from "spectacle";
 
 import Workflow from "./components/Workflow";
+import Balls from './components/Balls';
+
+
 import Banner from "./../../components/Banner";
+
 
 import { workflowLabels } from "./messages";
 import Tekton from "./../../../assets/tekton.png";
+import GitHub from './../../../assets/github-logo-white.png';
 
 const COLOR_PALLETE = {
   background: "#020003",
@@ -291,28 +296,45 @@ export default [
     >
       Demo
     </Heading>
+    <Balls />
     <Text italic={true} textColor={COLOR_PALLETE.textPrimary}></Text>
   </Slide>,
   <Slide
-    align="center center-top"
+    align="center center"
     transition={["zoom"]}
     bgColor={COLOR_PALLETE.background}
   >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
     <Heading
       margin="100px 0 100px 0"
       size={1}
       textColor={COLOR_PALLETE.textPrimary}
       lineHeight={1}
+      style={{ fontFamily: `'Pacifico', cursive`, fontWeight: 100 }}
     >
       Thank You!
     </Heading>
-    <Text italic={true} textColor={COLOR_PALLETE.textPrimary}>
-      {" "}
-      Tejas Cherukara tejas@anz.com{" "}
-    </Text>
-    <Text italic={true} textColor={COLOR_PALLETE.textPrimary}>
-      {" "}
-      Ben Ebsworth ben.ebsworth@digio.com.au{" "}
-    </Text>
+  </Slide>,
+  <Slide
+    align="center flex-start"
+    transition={["zoom"]}
+    bgColor={COLOR_PALLETE.background}
+  >
+    <Banner position="bottomRight" text={"@sycli"} />
+    <Banner position="bottomLeft" text={"@space_tj"} />
+    <Heading
+      margin="100px 0 100px 0"
+      size={1}
+      textColor={COLOR_PALLETE.textPrimary}
+      lineHeight={1}
+      style={{ fontFamily: `'Pacifico', cursive`, fontWeight: 100 }}
+    >
+      References
+    </Heading>
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <Image margin="0" height={120} src={GitHub} />
+        <Text margin="0 0 0 40px" textColor={COLOR_PALLETE.textPrimary} >https://github.com/covarity/anchorctl</Text>
+    </div>
   </Slide>,
 ];
