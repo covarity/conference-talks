@@ -5,10 +5,10 @@ export const Wrapper = styled.div`
     grid-template-areas:
         'diagram'
         'label';
-    grid-template-rows: 700px 250px;
+    grid-template-rows: 600px 250px;
     grid-row-gap: 10px; 
     @media only screen and (min-width: 1200px) {
-        grid-template-rows: 700px 150px;
+        grid-template-rows: 600px 150px;
     }
     /* padding-bottom: 127px; */
 
